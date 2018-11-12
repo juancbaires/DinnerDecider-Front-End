@@ -7,6 +7,7 @@ class App extends React.Component {
     this.state = {
       latitude: '',
       longitude: '',
+      city: '',
       favorite_foods: []
     }
     this.getMyLocation = this.getMyLocation.bind(this)
