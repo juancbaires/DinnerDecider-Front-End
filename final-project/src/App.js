@@ -6,7 +6,7 @@ import 'firebase/database';
 // import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 import firebase from "firebase"
 import FavoriteFoods from './components/FavoriteFoods/FavoriteFoods';
-
+import { Switch, Route, Link } from 'react-router-dom'
 class App extends React.Component {
   constructor() {
     super()
@@ -27,9 +27,9 @@ class App extends React.Component {
   componentDidMount() {
     this.getMyLocation()
   }
-  // got this code from stackoverflow After successfully implementing a react geolocation 
-  // I switched to this method because it works better with other components and it sets state
-  // so it can be passed down as props!
+  // got this code from stackoverflow After successfully implementing a react geolocation component but then
+  // I switched to this method because it plays better with other components and it sets state
+  // so lat and long can be passed down as props!
   getMyLocation() {
     const location = window.navigator && window.navigator.geolocation
 
@@ -51,6 +51,13 @@ class App extends React.Component {
     return (
       <div>
         <h1>Dinner Decider</h1>
+        <main>
+          <Switch>
+            <Route>
+
+            </Route>
+          </Switch>
+        </main>
       </div>
     )
   }
