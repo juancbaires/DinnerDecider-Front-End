@@ -1,26 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import { config } from './components/Config/Config'
-import firedatabase from 'firebase/app';
-import 'firebase/database';
-// import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
-import firebase from "firebase"
-import FavoriteFoods from './components/FavoriteFoods/FavoriteFoods';
 import { Switch, Route, Link } from 'react-router-dom'
 class App extends React.Component {
-  constructor() {
-    super()
-
+  constructor(props) {
+    super(props)
     this.state = {
       latitude: '',
       longitude: '',
       favorite_foods: []
     }
-
     this.getMyLocation = this.getMyLocation.bind(this)
-    this.app = firedatabase.initializeApp(config);
-    this.database = this.app.database().ref().child('favorite_foods');
   }
+  
 
 
 
