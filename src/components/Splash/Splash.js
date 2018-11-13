@@ -5,7 +5,10 @@ import { Button } from 'react-bootstrap'
 class Splash extends Component {
   state = {
     ballClass: 'eight-ball lower',
-    triangleClass: 'triangle'
+    triangleClass: 'triangle',
+    clicked: false,
+    website:
+      'https://www.google.com/maps/place/Olive+Garden+Italian+Restaurant/@38.8471223,-77.1210922,17z/data=!3m1!4b1!4m5!3m4!1s0x89b7b3f16f751631:0x954d31e54e9b8a69!8m2!3d38.8471223!4d-77.1189035'
   }
 
   riseBall = () => {
@@ -15,16 +18,23 @@ class Splash extends Component {
   }
 
   hideBall = () => {
-    this.setState({
-      ballClass: 'eight-ball lower'
-    })
+    if (!this.state.clicked) {
+      this.setState({
+        ballClass: 'eight-ball lower'
+      })
+    } else {
+      this.setState({
+        ballClass: 'eight-ball rise'
+      })
+    }
   }
 
   showTriangle = e => {
     e.preventDefault()
     this.setState({
       triangleClass: 'triangle triangle-show',
-      ballClass: 'eight-ball rise'
+      ballClass: 'eight-ball rise',
+      clicked: true
     })
   }
 
@@ -49,7 +59,13 @@ class Splash extends Component {
         </div>
         <div className={this.state.ballClass}>
           <div className={this.state.triangleClass}>
-            <span>Olive Garden</span>
+            <a
+              href={this.state.website}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Olive Garden
+            </a>
           </div>
         </div>
       </ul>

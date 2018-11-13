@@ -27,6 +27,7 @@
   color: white;
   font-size: 7rem;
   text-shadow: 2px 2px 15px #565656;
+  text-align: center;
 }
 
 .btn-success {
@@ -49,6 +50,9 @@
   border-color: rgb(19, 41, 38);
 }
 
+/* Eight ball image built by Justin Khoo,
+you can find the original work on codepen here https://codepen.io/freshinbox/pen/VQpQyo */
+
 .eight-ball {
   background-image: url(https://marketing.emailonacid.com/hubfs/2017-template-images/8ball/Magic8BallEmail_EmptyBall.png);
   position: absolute;
@@ -58,6 +62,7 @@
   z-index: 3;
   background-repeat: no-repeat;
   transform: translateY(100%);
+  opacity: 0;
 }
 
 .rise {
@@ -67,13 +72,18 @@
 }
 
 @keyframes rise {
+  0% {
+    opacity: 1;
+  }
+
   100% {
     transform: translateY(0%);
+    opacity: 1;
   }
 }
 
 .lower {
-  animation: lower .3s linear;
+  animation: lower .2s linear;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -81,10 +91,12 @@
 @keyframes lower {
   0% {
     transform: translateY(0%);
+    opacity: 1;
   }
 
   100% {
     transform: translateY(100%);
+    opacity: 1;
   }
 }
 
@@ -117,11 +129,16 @@
   }
 }
 
-
-.triangle span {
+.triangle a:visited,
+.triangle a:hover,
+.triangle a:active,
+.triangle a {
   word-spacing: 9999999px;
   text-align: center;
   font-size: 2rem;
+  color: white;
+  text-decoration: none;
+  text-shadow: 2px 2px 14px rgba(255, 255, 255, 0.69);
 }
 
 .slideshow li {
