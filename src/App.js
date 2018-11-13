@@ -26,22 +26,31 @@ class App extends Component {
   }
 
 
-  handleLogIn = () => {
+  handleLogIn = (existingUser) => {
     axios.post(`/users/login`, {
-      email: this.state.email,
-      password: this.state.password
+      username: existingUser.username,
+      password: existingUser.password
     })
       .then(response => {
         console.log(decode(response.data.token))
         localStorage.token = response.data.token
-        this.setState({
-          isLoggedIn: true
-        });
+        this.setState({ isLoggedIn: true, loginError: '' });
+        this.props.history.push('/');
       })
 
       .catch(err => this.setState({
         loginError: 'Wrong username/password'
       }))
+  }
+
+  handleLogout = () => {
+    this.setState({
+      username: '',
+      password: '',
+      isLoggedIn: false
+    })
+    localStorage.clear()
+    this.props.history.push('/')
   }
 
   handleSignup = (newUser) => {
@@ -93,16 +102,18 @@ class App extends Component {
   }
 
   render() {
+    let name
     if (localStorage.token) {
       console.log(jwtDecode(localStorage.token))
+      name = jwtDecode(localStorage.token).username
     }
     return (
       <div>
-        <Header />
+        <Header handleLogout={this.handleLogout} name={name} isLoggedIn={this.state.isLoggedIn} />
         <main>
           <Switch>
             <Route path="/signup" render={() => <Signup handleSignup={this.handleSignup}></Signup>}></Route>
-            <Route path="/login" render={() => <Login></Login>}></Route>
+            <Route path="/login" render={() => <Login handleLogIn={this.handleLogIn}></Login>}></Route>
             <Route path="/" render={() => <Splash></Splash>}></Route>
           </Switch>
         </main>
