@@ -104,8 +104,8 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
 .triangle {
   background-image: url(https://marketing.emailonacid.com/hubfs/2017-template-images/8ball/Magic8BallEmail_Triangle1.png);
   background-size: cover;
-  width: 150px;
-  height: 120px;
+  width: 170px;
+  height: 110px;
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -127,17 +127,22 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
 
 @keyframes triangle-show {
   100% {
-    opacity: 1;
+    opacity: .8;
   }
 }
 
-.triangle a:visited,
-.triangle a:hover,
-.triangle a:active,
 .triangle a {
   word-spacing: 9999999px;
   text-align: center;
   font-size: 2rem;
+  color: white;
+  text-decoration: none;
+  text-shadow: .5px .5px 7px rgba(255, 255, 255, 0.69);
+}
+
+.triangle a:visited,
+.triangle a:hover,
+.triangle a:active {
   color: white;
   text-decoration: none;
   text-shadow: 2px 2px 14px rgba(255, 255, 255, 0.69);
@@ -193,12 +198,12 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
 
   10% {
     animation-timing-function: ease-out;
-    opacity: 1;
+    opacity: .5;
     transform: scale(1.1);
   }
 
   20% {
-    opacity: 1;
+    opacity: .5;
     transform: scale(1.2);
   }
 
