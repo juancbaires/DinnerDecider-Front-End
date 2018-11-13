@@ -6,8 +6,9 @@ import axios from 'axios'
 import decode from "jwt-decode"
 import Login from './components/User/Login'
 import Signup from "./components/User/Signup"
+import Splash from './components/Splash/Splash'
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -70,15 +71,9 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <h1>Dinner Decider</h1>
-        <Signup />
         <main>
           <Switch>
-            <Route>
-              {/* <Route path="/login" render={(props) => <Login {...props} isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} handleLogIn={this.handleLogIn} />} /> */}
-              {/* <Login /> */}
-
-            </Route>
+            <Route render={() => <Splash></Splash>}></Route>
           </Switch>
         </main>
       </div>

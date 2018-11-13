@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem } from "react-bootstrap"
+import './Header.css'
 
 class Header extends Component {
     render() {
@@ -8,7 +9,7 @@ class Header extends Component {
                 <Navbar inverse collapseOnSelect>
                     <Navbar.Header>
                         <Navbar.Brand>
-                            <a href="#brand">Dinner-Decider</a>
+                            <a href="/">Dinner-Decider</a>
                         </Navbar.Brand>
                         <Navbar.Toggle />
                     </Navbar.Header>
