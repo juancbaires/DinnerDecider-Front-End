@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import './Splash.css'
 import { Button } from 'react-bootstrap'
+import Axios from 'axios';
 
 class Splash extends Component {
   state = {
     ballClass: 'eight-ball lower',
     triangleClass: 'triangle',
+    randomPick: {},
     clicked: false,
     website:
-      'https://www.google.com/maps/place/Olive+Garden+Italian+Restaurant/@38.8471223,-77.1210922,17z/data=!3m1!4b1!4m5!3m4!1s0x89b7b3f16f751631:0x954d31e54e9b8a69!8m2!3d38.8471223!4d-77.1189035'
+      'https://www.google.com/maps/search/?api=1&query='
   }
 
   riseBall = () => {
@@ -35,7 +37,24 @@ class Splash extends Component {
     }
   }
 
+  randomRestaurant = () => {
+    Axios.get('https://developers.zomato.com/api/v2.1/search?lat=38.904929100000004&lon=-77.0337104&radius=8000', {
+      headers: {
+        "user-key": "5333911bf4dfd7956564c2dbbd13de65"
+      }
+    }).then(results => {
+      this.setState({
+        randomPick: results.data.restaurants[Math.floor(Math.random() * results.data.restaurants.length)].restaurant
+      })
+    }).finally(_ => {
+      this.setState({
+        website: this.state.website + this.state.randomPick.location.address
+      })
+    })
+  }
+
   showTriangle = e => {
+    this.randomRestaurant()
     e.preventDefault()
     this.setState({
       triangleClass: 'triangle triangle-show',
@@ -70,7 +89,7 @@ class Splash extends Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Olive Garden
+              {this.state.randomPick.name}
             </a>
           </div>
         </div>

@@ -25,6 +25,16 @@ class App extends Component {
     this.getMyLocation = this.getMyLocation.bind(this)
   }
 
+  componentDidMount() {
+    this.getMyLocation()
+    if (localStorage.token) {
+      this.setState({
+        isLoggedIn: true,
+        loginError: ''
+      })
+    }
+  }
+
 
   handleLogIn = (existingUser) => {
     axios.post(`/users/login`, {
@@ -79,9 +89,6 @@ class App extends Component {
       });
   };
 
-  componentDidMount() {
-    this.getMyLocation()
-  }
   // got this code from stackoverflow After successfully implementing a react geolocation component but then
   // I switched to this method because it plays better with other components and it sets state
   // so lat and long can be passed down as props!
