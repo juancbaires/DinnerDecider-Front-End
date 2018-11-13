@@ -55,6 +55,7 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
 
 .eight-ball {
   background-image: url(https://marketing.emailonacid.com/hubfs/2017-template-images/8ball/Magic8BallEmail_EmptyBall.png);
+  background-size: cover;
   position: absolute;
   bottom: 0;
   width: 500px;
@@ -102,11 +103,12 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
 
 .triangle {
   background-image: url(https://marketing.emailonacid.com/hubfs/2017-template-images/8ball/Magic8BallEmail_Triangle1.png);
+  background-size: cover;
   width: 150px;
   height: 120px;
   position: absolute;
   bottom: 0;
-  left: 46%;
+  left: 50%;
   background-repeat: no-repeat;
   transform: translateX(-50%);
   color: white;
@@ -203,5 +205,22 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
   30% {
     opacity: 0;
     transform: scale(1.2);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .eight-ball {
+    width: 300px;
+    height: 150px;
+  }
+
+  .triangle {
+    width: 100px;
+    height: 40px;
+    padding-top: 2px;
+  }
+
+  .triangle a {
+    font-size: 1rem;
   }
 }
