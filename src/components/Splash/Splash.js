@@ -12,9 +12,15 @@ class Splash extends Component {
   }
 
   riseBall = () => {
-    this.setState({
-      ballClass: 'eight-ball rise'
-    })
+    if (!this.state.clicked) {
+      this.setState({
+        ballClass: 'eight-ball rise'
+      })
+    } else {
+      this.setState({
+        ballClass: 'eight-ball rise shake'
+      })
+    }
   }
 
   hideBall = () => {
@@ -24,7 +30,7 @@ class Splash extends Component {
       })
     } else {
       this.setState({
-        ballClass: 'eight-ball rise'
+        ballClass: 'eight-ball rise shake'
       })
     }
   }
