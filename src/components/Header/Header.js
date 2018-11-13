@@ -9,16 +9,16 @@ class Header extends Component {
                 <Navbar inverse collapseOnSelect>
                     <Navbar.Header>
                         <Navbar.Brand>
-                            <a href="/">Dinner-Decider</a>
+                            <a href="/">Ate-Ball</a>
                         </Navbar.Brand>
                         <Navbar.Toggle />
                     </Navbar.Header>
                     <Navbar.Collapse>
                         <Nav pullRight>
-                            <NavItem eventKey={1} href="#">
+                            <NavItem eventKey={1} href="/login">
                                 Login
       </NavItem>
-                            <NavItem eventKey={2} href="#">
+                            <NavItem eventKey={2} href="/signup">
                                 Signup
       </NavItem>
                         </Nav>

@@ -1,33 +1,33 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Switch, Route, Link } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 import Header from './components/Header/Header'
 import axios from 'axios'
 import decode from "jwt-decode"
 import Login from './components/User/Login'
 import Signup from "./components/User/Signup"
 import Splash from './components/Splash/Splash'
+import jwtDecode from 'jwt-decode'
 
-class App extends React.Component {
+// const url = 'http://localhost:3001'
+
+class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       latitude: '',
       longitude: '',
       city: '',
-      favorite_foods: [],
-      username: '',
-      password: '',
       isLoggedIn: false,
       loginError: '',
-      SignupError: 'Username alreay exsists'
+      signupError: ''
     }
     this.getMyLocation = this.getMyLocation.bind(this)
   }
 
 
   handleLogIn = () => {
-    axios.post('http://localhost:3001//users/login', {
+    axios.post(`/users/login`, {
       email: this.state.email,
       password: this.state.password
     })
@@ -43,6 +43,32 @@ class App extends React.Component {
         loginError: 'Wrong username/password'
       }))
   }
+
+  handleSignup = (newUser) => {
+    //axios posts the new user to our backend using the UserInput paremeter
+    axios
+      .post(`/users/signup`, {
+        username: newUser.username,
+        password: newUser.password,
+        food1: newUser.food1,
+        food2: newUser.food2,
+        food3: newUser.food3,
+        food4: newUser.food4,
+        food5: newUser.food5,
+        food6: newUser.food6
+      })
+      //our token is stored and loggedIn is changed to true
+      .then(response => {
+        localStorage.token = response.data.token;
+        this.setState({ isLoggedIn: true, signupError: '' });
+        this.props.history.push('/');
+      })
+      .catch(err => {
+        this.setState({
+          signupError: 'Username taken.'
+        });
+      });
+  };
 
   componentDidMount() {
     this.getMyLocation()
@@ -67,13 +93,17 @@ class App extends React.Component {
   }
 
   render() {
-
+    if (localStorage.token) {
+      console.log(jwtDecode(localStorage.token))
+    }
     return (
       <div>
         <Header />
         <main>
           <Switch>
-            <Route render={() => <Splash></Splash>}></Route>
+            <Route path="/signup" render={() => <Signup handleSignup={this.handleSignup}></Signup>}></Route>
+            <Route path="/login" render={() => <Login></Login>}></Route>
+            <Route path="/" render={() => <Splash></Splash>}></Route>
           </Switch>
         </main>
       </div>
@@ -82,4 +112,4 @@ class App extends React.Component {
 }
 
 
-export default App;
+export default withRouter(App);

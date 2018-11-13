@@ -17,17 +17,22 @@ class Signup extends Component {
             [e.target.name]: e.target.value
         })
     }
+
+    handleSubmit = (e) => {
+      e.preventDefault()
+      this.props.handleSignup(this.state)
+    }
     render() {
         return (
 
             <div className="accountForms accountForms--Signup">
                 <h3>Signup</h3>
                 <p>Create username and password</p>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <div>
                         <div className="account--head">
                             <input onChange={this.handleInput} name="username" placeholder="Username"></input>
-                            <input onChange={this.handleInput} name="password" placeholder="Password"></input>
+                            <input type="password" onChange={this.handleInput} name="password" placeholder="Password"></input>
                         </div>
                         <div className='account-container'>
                             <div className="account--body">
@@ -44,7 +49,7 @@ class Signup extends Component {
                             </div>
                         </div>
                     </div>
-                    <button className="signupButton" type="submit">Signup</button>
+                    <button className="signupButton">Signup</button>
                 </form>
             </div >
 

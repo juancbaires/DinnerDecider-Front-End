@@ -53,7 +53,7 @@ class Splash extends Component {
         <li />
         <li />
         <div className="hero-text">
-          <h1>Dinner Decider</h1>
+          <h1>Ate-Ball</h1>
           <Button
             bsStyle="success"
             onMouseEnter={this.riseBall}
