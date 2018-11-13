@@ -1,0 +1,54 @@
+/**
+ * forms
+ */
+
+form {
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+input {
+    margin: 15px;
+    width: 100%;
+    height: 43px;
+    border-radius: 4px;
+}
+
+.accountForms {
+    height: 42rem;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    margin: 15px;
+    width: 100%;
+    height: 43px;
+    border-radius: 4px;
+    color: white;
+    background-color: #3C887E;
+}
+
+/**
+ * Signup form is a bit larger in height then the rest`
+ */
+
+.accountForms--Signup {
+    height: 77rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.accountForms--Signup form {
+    height: 99rem;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
