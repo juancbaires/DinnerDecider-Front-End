@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Switch, Route, Link } from 'react-router-dom'
 import Header from './components/Header/Header'
+import Splash from './components/Splash/Splash'
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -40,12 +41,9 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <h1>Dinner Decider</h1>
         <main>
           <Switch>
-            <Route>
-
-            </Route>
+            <Route render={() => <Splash></Splash>}></Route>
           </Switch>
         </main>
       </div>
