@@ -27,7 +27,7 @@
   font-family: 'Boogaloo', sans-serif;
   color: white;
   font-size: 7rem;
-  text-shadow: 2px 2px 15px #565656;
+  text-shadow: 2px 2px 15px #2c2c2c;
   text-align: center;
 }
 
@@ -65,6 +65,8 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
   background-repeat: no-repeat;
   transform: translateY(100%);
   opacity: 0;
+  --webkit-filter: drop-shadow(1px 1px 0.75rem rgb(15, 15, 15));
+  filter: drop-shadow(1px 1px 0.75rem rgb(15, 15, 15));
 }
 
 .rise {
@@ -253,12 +255,12 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
 
   10% {
     animation-timing-function: ease-out;
-    opacity: .5;
+    opacity: .3;
     transform: scale(1.1);
   }
 
   20% {
-    opacity: .5;
+    opacity: .3;
     transform: scale(1.2);
   }
 
