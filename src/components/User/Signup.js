@@ -24,17 +24,27 @@ class Signup extends Component {
                 <h3>Signup</h3>
                 <p>Create username and password</p>
                 <form>
-                    <input onChange={this.handleInput} name="username" placeholder="Username"></input>
-                    <input onChange={this.handleInput} name="password" placeholder="Password"></input>
-                    <p>Spouse one's favorite foods</p>
-                    <input onChange={this.handleInput} name="food1" placeholder="Favorite Food 1"></input>
-                    <input onChange={this.handleInput} name="food2" placeholder="Favorite Food 2"></input>
-                    <input onChange={this.handleInput} name="food3" placeholder="Favorite Food 3"></input>
-                    <p>Spouse two's favorite foods</p>
-                    <input onChange={this.handleInput} name="food4" placeholder="Favorite Food 1"></input>
-                    <input onChange={this.handleInput} name="food5" placeholder="Favorite Food 2"></input>
-                    <input onChange={this.handleInput} name="food6" placeholder="Favorite Food 3"></input>
-                    <button type="submit">Signup</button>
+                    <div>
+                        <div className="account--head">
+                            <input onChange={this.handleInput} name="username" placeholder="Username"></input>
+                            <input onChange={this.handleInput} name="password" placeholder="Password"></input>
+                        </div>
+                        <div className='account-container'>
+                            <div className="account--body">
+                                <p>Spouse one's favorite foods</p>
+                                <input onChange={this.handleInput} name="food1" placeholder="Favorite Food 1"></input>
+                                <input onChange={this.handleInput} name="food2" placeholder="Favorite Food 2"></input>
+                                <input onChange={this.handleInput} name="food3" placeholder="Favorite Food 3"></input>
+                            </div>
+                            <div className="account--body">
+                                <p>Spouse two's favorite foods</p>
+                                <input onChange={this.handleInput} name="food4" placeholder="Favorite Food 1"></input>
+                                <input onChange={this.handleInput} name="food5" placeholder="Favorite Food 2"></input>
+                                <input onChange={this.handleInput} name="food6" placeholder="Favorite Food 3"></input>
+                            </div>
+                        </div>
+                    </div>
+                    <button className="signupButton" type="submit">Signup</button>
                 </form>
             </div >
 
