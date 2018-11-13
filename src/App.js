@@ -2,15 +2,45 @@ import React, { Component } from 'react';
 import './App.css';
 import { Switch, Route, Link } from 'react-router-dom'
 import Header from './components/Header/Header'
-class App extends React.Component {
+import axios from 'axios'
+import decode from "jwt-decode"
+import Login from './components/User/Login'
+import Signup from "./components/User/Signup"
+
+class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       latitude: '',
       longitude: '',
-      favorite_foods: []
+      city: '',
+      favorite_foods: [],
+      username: '',
+      password: '',
+      isLoggedIn: false,
+      loginError: '',
+      SignupError: 'Username alreay exsists'
     }
     this.getMyLocation = this.getMyLocation.bind(this)
+  }
+
+
+  handleLogIn = () => {
+    axios.post('http://localhost:3001//users/login', {
+      email: this.state.email,
+      password: this.state.password
+    })
+      .then(response => {
+        console.log(decode(response.data.token))
+        localStorage.token = response.data.token
+        this.setState({
+          isLoggedIn: true
+        });
+      })
+
+      .catch(err => this.setState({
+        loginError: 'Wrong username/password'
+      }))
   }
 
   componentDidMount() {
@@ -41,9 +71,12 @@ class App extends React.Component {
       <div>
         <Header />
         <h1>Dinner Decider</h1>
+        <Signup />
         <main>
           <Switch>
             <Route>
+              {/* <Route path="/login" render={(props) => <Login {...props} isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} handleLogIn={this.handleLogIn} />} /> */}
+              {/* <Login /> */}
 
             </Route>
           </Switch>
