@@ -33,7 +33,7 @@ class Splash extends Component {
     e.preventDefault()
     this.setState({
       triangleClass: 'triangle triangle-show',
-      ballClass: 'eight-ball rise',
+      ballClass: 'eight-ball rise shake',
       clicked: true
     })
   }
