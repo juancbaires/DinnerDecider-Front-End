@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import './User.css'
 
 class Login extends Component {
@@ -19,14 +18,17 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="accountForms">
-        <form onSubmit={this.handleSubmit}>
+      <div className="accountLogin">
+        <div className="accountIMAGE">
+          <div className='image'></div>
+        </div>
+        {/* <form onSubmit={this.handleSubmit}>
           <h3>Login</h3>
           <p>Please enter your username and password</p>
           <input onChange={this.handleChange} name="username" placeholder="Username"></input>
           <input onChange={this.handleChange} type="password" name="password" placeholder="Password"></input>
           <button>Login</button>
-        </form>
+        </form> */}
       </div >
     );
   }

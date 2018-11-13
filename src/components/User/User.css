@@ -3,48 +3,48 @@
  */
 
 form {
-  max-width: 500px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 }
 
 input {
-  /* margin: 15px; */
-  width: 100%;
-  height: 43px;
-  border-radius: 4px;
+    /* margin: 15px; */
+    width: 100%;
+    height: 43px;
+    border-radius: 4px;
 }
 
 .account--head {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .account--body {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
 }
 
 .account-container {
-  display: flex;
-  padding: 10px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 button {
-  margin: 15px;
-  width: 100%;
-  height: 43px;
-  border-radius: 4px;
-  color: white;
-  background-color: #3C887E;
+    margin: 15px;
+    width: 100%;
+    height: 43px;
+    border-radius: 4px;
+    color: white;
+    background-color: #3C887E;
 }
 
 /**
@@ -52,19 +52,31 @@ button {
  */
 
 .accountForms--Signup {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* max-width: 500px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* max-width: 500px; */
 }
 
 .accountForms--Signup form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .signupButton {
-  align-items: center;
+    align-items: center;
+}
+
+/**
+ * login Image
+ */
+
+.image {
+    background-image: url('../Image/login_image.jpg');
+    height: 100vh;
+    width: 95rem;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
