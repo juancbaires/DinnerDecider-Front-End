@@ -6,6 +6,7 @@ class Ateball extends Component {
   state = {
     ateballRise: 'ateball',
     triangleShow: 'ateball-triangle',
+    titleShow: 'ateball-title',
     restaurantName: '',
     website:
       'https://www.google.com/maps/search/?api=1&query=',
@@ -34,6 +35,7 @@ class Ateball extends Component {
       console.log(restaurant)
       this.setState({
         restaurantName: restaurant.name,
+        titleShow: 'ateball-title ateball-title-show',
         website: this.state.website + restaurant.location.address1,
         clicked: true
       })
@@ -149,6 +151,7 @@ class Ateball extends Component {
   render() {
     return (
       <div className="wrap">
+      <h1 className={this.state.titleShow}>The AteBall has decided. You will go to...</h1>
       {this.state.clicked? <div className={this.state.ateballRise}><div className={this.state.triangleShow}><a target="_blank" rel="noopener noreferrer" href={this.state.website}>{this.state.restaurantName}</a></div></div> : <div onClick={this.shake} className={this.state.ateballRise}><div className={this.state.triangleShow}><a href={this.state.website}>{this.state.restaurantName}</a></div></div>}
       <canvas id="canvas">
       </canvas>
