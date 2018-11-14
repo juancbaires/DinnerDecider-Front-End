@@ -109,22 +109,6 @@ class App extends Component {
 
   }
 
-  ateBallMain = () => {
-    let userFoods = [this.state.user.food1,this.state.user.food2,this.state.user.food3,this.state.user.food4,this.state.user.food5,this.state.user.food6]
-    console.log({
-      foodChoice: userFoods[Math.floor(Math.random() * userFoods.length)],
-      latitude: this.state.latitude,
-      longitude: this.state.longitude
-    })
-    axios.post('/api/yelp', {
-      foodChoice: userFoods[Math.floor(Math.random() * userFoods.length)],
-      latitude: this.state.latitude,
-      longitude: this.state.longitude
-    }).then(response => {
-      console.log(response.data.businesses[Math.floor(Math.random() * response.data.businesses.length)])
-    })
-  }
-
   render() {
     return (
       <div>
@@ -132,7 +116,7 @@ class App extends Component {
         <main>
           <Switch>
             <Route path="/user/:username" render={() => <Show {...this.props}{...this.state} />}></Route>
-            <Route path="/ateball" render={() => <AteBall user={this.state.user} ateBallMain={this.ateBallMain}></AteBall>}></Route>
+            <Route path="/ateball" render={() => <AteBall latitude={this.state.latitude} longitude={this.state.longitude} user={this.state.user} ateBallMain={this.ateBallMain}></AteBall>}></Route>
             <Route path="/signup" render={() => <Signup handleSignup={this.handleSignup}></Signup>}></Route>
             <Route path="/login" render={() => <Login handleLogIn={this.handleLogIn}></Login>}></Route>
             <Route path="/" render={() => <Splash latitude={this.state.latitude} longitude={this.state.longitude}></Splash>}></Route>

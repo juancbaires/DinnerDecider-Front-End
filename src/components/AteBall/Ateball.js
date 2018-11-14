@@ -1,15 +1,49 @@
 import React, { Component } from 'react';
 import './Ateball.css'
+import axios from 'axios'
 
 class Ateball extends Component {
   state = {
-    ateballRise: 'ateball'
+    ateballRise: 'ateball',
+    triangleShow: 'ateball-triangle',
+    restaurantName: '',
+    website:
+      'https://www.google.com/maps/search/?api=1&query=',
+    clicked: false
+  }
+
+  shake = () => {
+    this.ateBallMain()
+    this.setState({
+      ateballRise: 'ateball ateball-shake',
+      triangleShow: 'ateball-triangle ateball-triangle-show'
+    })
+  }
+
+
+  ateBallMain = () => {
+    let userFoods = [this.props.user.food1,this.props.user.food2,this.props.user.food3,this.props.user.food4,this.props.user.food5,this.props.user.food6]
+    console.log(this.props.latitude, this.props.longitude)
+    console.log(userFoods)
+    axios.post('/api/yelp', {
+      foodChoice: userFoods[Math.floor(Math.random() * userFoods.length)],
+      latitude: this.props.latitude,
+      longitude: this.props.longitude
+    }).then(response => {
+      let restaurant = response.data.businesses[Math.floor(Math.random() * response.data.businesses.length)]
+      console.log(restaurant)
+      this.setState({
+        restaurantName: restaurant.name,
+        website: this.state.website + restaurant.location.address1,
+        clicked: true
+      })
+    })
   }
 
   componentDidMount() {
     this.stars()
     this.setState({
-      ateballRise: 'ateball rise'
+      ateballRise: 'ateball ateball-rise'
     })
 
     window.addEventListener("resize", this.stars);
@@ -115,7 +149,7 @@ class Ateball extends Component {
   render() {
     return (
       <div className="wrap">
-      <div className={this.state.ateballRise}></div>
+      {this.state.clicked? <div className={this.state.ateballRise}><div className={this.state.triangleShow}><a target="_blank" rel="noopener noreferrer" href={this.state.website}>{this.state.restaurantName}</a></div></div> : <div onClick={this.shake} className={this.state.ateballRise}><div className={this.state.triangleShow}><a href={this.state.website}>{this.state.restaurantName}</a></div></div>}
       <canvas id="canvas">
       </canvas>
       </div>
