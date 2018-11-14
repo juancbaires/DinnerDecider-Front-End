@@ -45,6 +45,7 @@ class Splash extends Component {
         "user-key": zomato
       }
     }).then(results => {
+      console.log(results)
       this.setState({
         randomPick: results.data.restaurants[Math.floor(Math.random() * results.data.restaurants.length)].restaurant
       })
