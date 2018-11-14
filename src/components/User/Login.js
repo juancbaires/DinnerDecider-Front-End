@@ -23,13 +23,13 @@ class Login extends Component {
           <div className='image'></div>
         </div>
         <div className="sideForm">
-          <Form onSubmit={this.handleSubmit} horizontal>
+          <Form horizontal onSubmit={this.handleSubmit}>
             <FormGroup controlId="formHorizontalEmail">
-              <Col componentClass={ControlLabel} sm={2}  >
-                username
+              <Col componentClass={ControlLabel} sm={2}>
+                Username
     </Col>
               <Col sm={10}>
-                <FormControl type="username" placeholder="Username" name="username" onChange={this.handleChange} />
+                <FormControl onChange={this.handleChange} name="username" type="text" placeholder="Username" />
               </Col>
             </FormGroup>
 
@@ -38,7 +38,7 @@ class Login extends Component {
                 Password
     </Col>
               <Col sm={10}>
-                <FormControl name="password" type="password" placeholder="Password" onChange={this.handleChange} />
+                <FormControl onChange={this.handleChange} name="password" type="password" placeholder="Password" />
               </Col>
             </FormGroup>
 
