@@ -30,13 +30,13 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
   height: 500px;
   z-index: 1000;
   background-repeat: no-repeat;
-  transform: translateY(50%) translateX(-50%);
+  transform: translateY(200%) translateX(-50%);
   --webkit-filter: drop-shadow(1px 1px 0.75rem rgb(15, 15, 15));
   filter: drop-shadow(1px 1px 0.75rem rgb(15, 15, 15));
 }
 
 .rise {
-  animation: rise .3s linear;
+  animation: rise .3s linear 2;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -47,7 +47,7 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
   }
 
   100% {
-    transform: translateY(0%);
+    transform: translateY(50%) translateX(-50%);
     opacity: 1;
   }
 }
