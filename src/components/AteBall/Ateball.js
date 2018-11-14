@@ -115,7 +115,7 @@ class Ateball extends Component {
   render() {
     return (
       <div className="wrap">
-      <div className="ateball"></div>
+      <div className={this.state.ateballRise}></div>
       <canvas id="canvas">
       </canvas>
       </div>
