@@ -22,24 +22,6 @@
     align-items: center;
 }
 
-/**
- * Signup form is a bit larger in height then the rest`
- */
-
-.accountForms--Signup {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* max-width: 500px; */
-}
-
-.accountForms--Signup form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
 .signupButton {
     align-items: center;
 }
@@ -61,6 +43,11 @@
     flex-direction: row;
 }
 
+.signupContainer {
+    display: flex;
+    flex-direction: row;
+}
+
 .sideForm {
     height: 500px;
     display: flex;
@@ -71,4 +58,19 @@
 
 .form-horizontal {
     width: 400px;
+}
+
+.signupImage {
+    background-image: url('../Image/SignupImage.jpg');
+    height: 100vh;
+    width: 50vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.signupForms {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
 }
