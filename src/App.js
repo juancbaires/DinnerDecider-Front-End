@@ -11,8 +11,6 @@ import AteBall from './components/AteBall/Ateball'
 import jwtDecode from 'jwt-decode'
 import Show from './components/User/Show';
 
-const yelp = process.env.REACT_APP_YELPKEY
-
 class App extends Component {
   constructor(props) {
     super(props)
@@ -23,9 +21,7 @@ class App extends Component {
       isLoggedIn: false,
       loginError: '',
       signupError: '',
-      user: {
-
-      }
+      user: {}
     }
     this.getMyLocation = this.getMyLocation.bind(this)
   }
@@ -114,23 +110,24 @@ class App extends Component {
   }
 
   ateBallMain = () => {
-    axios.get('/api/yelp').then(response => {
-      console.log(response.data)
+    let userFoods = [this.state.user.food1,this.state.user.food2,this.state.user.food3,this.state.user.food4,this.state.user.food5,this.state.user.food6]
+  
+    axios.post('/api/yelp', {
+      foodChoice: userFoods[Math.floor(Math.random() * userFoods.length)],
+      latitude: this.state.latitude,
+      longitude: this.state.longitude
+    }).then(response => {
+      console.log(response.data.businesses[Math.floor(Math.random() * response.data.businesses.length)])
     })
   }
 
   render() {
-    let name
-    if (localStorage.token) {
-      console.log(jwtDecode(localStorage.token))
-      name = jwtDecode(localStorage.token).username
-    }
     return (
       <div>
-        <Header handleLogout={this.handleLogout} name={name} isLoggedIn={this.state.isLoggedIn} />
+        <Header handleLogout={this.handleLogout} name={this.state.user.username} isLoggedIn={this.state.isLoggedIn} />
         <main>
           <Switch>
-            <Route path="/show" render={() => <Show {...this.props}{...this.state} />}></Route>
+            <Route path="/user/:username" render={() => <Show {...this.props}{...this.state} />}></Route>
             <Route path="/ateball" render={() => <AteBall user={this.state.user} ateBallMain={this.ateBallMain}></AteBall>}></Route>
             <Route path="/signup" render={() => <Signup handleSignup={this.handleSignup}></Signup>}></Route>
             <Route path="/login" render={() => <Login handleLogIn={this.handleLogIn}></Login>}></Route>
