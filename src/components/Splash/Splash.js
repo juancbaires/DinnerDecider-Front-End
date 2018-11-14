@@ -3,6 +3,8 @@ import './Splash.css'
 import { Button } from 'react-bootstrap'
 import Axios from 'axios';
 
+const zomato = process.env.REACT_APP_ZOMATOKEY
+
 class Splash extends Component {
   state = {
     ballClass: 'eight-ball lower',
@@ -38,9 +40,9 @@ class Splash extends Component {
   }
 
   randomRestaurant = () => {
-    Axios.get('https://developers.zomato.com/api/v2.1/search?lat=38.904929100000004&lon=-77.0337104&radius=8000', {
+    Axios.get(`https://developers.zomato.com/api/v2.1/search?lat=${this.props.latitude}&lon=${this.props.longitude}&radius=8000`, {
       headers: {
-        "user-key": "5333911bf4dfd7956564c2dbbd13de65"
+        "user-key": zomato
       }
     }).then(results => {
       this.setState({
