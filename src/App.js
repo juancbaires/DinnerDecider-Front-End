@@ -117,8 +117,6 @@ class App extends Component {
     console.log(this.state.user.food1)
     axios.get(`http://api.yelp.com/v3/businesses/search?term=${this.state.user.food1}&latitude=${this.state.latitude}&longitude=${this.state.longitude}`, { crossdomain: true },{
       headers: {
-        "key": "Access-Control-Allow-Origin",
-        "value": "*",
         "Authorization": "Bearer " + yelp
       }
     }).then(response => {
