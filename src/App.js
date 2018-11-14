@@ -9,6 +9,7 @@ import Signup from "./components/User/Signup"
 import Splash from './components/Splash/Splash'
 import AteBall from './components/AteBall/Ateball'
 import jwtDecode from 'jwt-decode'
+import Show from './components/User/Show';
 
 const yelp = process.env.REACT_APP_YELPKEY
 
@@ -23,7 +24,7 @@ class App extends Component {
       loginError: '',
       signupError: '',
       user: {
-        
+
       }
     }
     this.getMyLocation = this.getMyLocation.bind(this)
@@ -57,7 +58,6 @@ class App extends Component {
         loginError: 'Wrong username/password'
       }))
   }
-
   handleLogout = () => {
     this.setState({
       username: '',
@@ -117,6 +117,11 @@ class App extends Component {
     console.log(this.state.user.food1)
     axios.get(`http://api.yelp.com/v3/businesses/search?term=${this.state.user.food1}&latitude=${this.state.latitude}&longitude=${this.state.longitude}`, { crossdomain: true },{
       headers: {
+<<<<<<< HEAD
+=======
+        "key": "Access-Control-Allow-Origin",
+        "value": "*",
+>>>>>>> 6f9d8d4ef9369643777167d1be103cb21e668f3a
         "Authorization": "Bearer " + yelp
       }
     }).then(response => {
@@ -135,6 +140,7 @@ class App extends Component {
         <Header handleLogout={this.handleLogout} name={name} isLoggedIn={this.state.isLoggedIn} />
         <main>
           <Switch>
+            <Route path="/show" render={() => <Show {...this.props}{...this.state} />}></Route>
             <Route path="/ateball" render={() => <AteBall user={this.state.user} ateBallMain={this.ateBallMain}></AteBall>}></Route>
             <Route path="/signup" render={() => <Signup handleSignup={this.handleSignup}></Signup>}></Route>
             <Route path="/login" render={() => <Login handleLogIn={this.handleLogIn}></Login>}></Route>
