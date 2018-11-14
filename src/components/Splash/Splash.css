@@ -105,8 +105,7 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
 }
 
 .shake {
-  /* Start the shake animation and make the animation last for 0.5 seconds */
-  animation: shake 1s forwards;
+  animation: shake 1.5s forwards;
   animation-iteration-count: 1;
 }
 
@@ -177,7 +176,7 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
 }
 
 .triangle-show {
-  animation: triangle-show .3s linear 1s;
+  animation: triangle-show .3s linear 1.6s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }

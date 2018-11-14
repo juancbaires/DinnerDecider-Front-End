@@ -7,7 +7,10 @@ import decode from "jwt-decode"
 import Login from './components/User/Login'
 import Signup from "./components/User/Signup"
 import Splash from './components/Splash/Splash'
+import AteBall from './components/AteBall/Ateball'
 import jwtDecode from 'jwt-decode'
+
+const yelp = process.env.REACT_APP_YELPKEY
 
 class App extends Component {
   constructor(props) {
@@ -18,7 +21,10 @@ class App extends Component {
       city: '',
       isLoggedIn: false,
       loginError: '',
-      signupError: ''
+      signupError: '',
+      user: {
+        
+      }
     }
     this.getMyLocation = this.getMyLocation.bind(this)
   }
@@ -28,7 +34,8 @@ class App extends Component {
     if (localStorage.token) {
       this.setState({
         isLoggedIn: true,
-        loginError: ''
+        loginError: '',
+        user: jwtDecode(localStorage.token)
       })
     }
   }
@@ -106,6 +113,19 @@ class App extends Component {
 
   }
 
+  ateBallMain = () => {
+    console.log(this.state.user.food1)
+    axios.get(`http://api.yelp.com/v3/businesses/search?term=${this.state.user.food1}&latitude=${this.state.latitude}&longitude=${this.state.longitude}`, {
+      headers: {
+        "key" : "Access-Control-Allow-Origin",
+        "value" : "*",
+        "Authorization": "Bearer " + yelp
+      }
+    }).then(response => {
+      console.log(response)
+    })
+  }
+
   render() {
     let name
     if (localStorage.token) {
@@ -117,6 +137,7 @@ class App extends Component {
         <Header handleLogout={this.handleLogout} name={name} isLoggedIn={this.state.isLoggedIn} />
         <main>
           <Switch>
+            <Route path="/ateball" render={() => <AteBall user={this.state.user} ateBallMain={this.ateBallMain}></AteBall>}></Route>
             <Route path="/signup" render={() => <Signup handleSignup={this.handleSignup}></Signup>}></Route>
             <Route path="/login" render={() => <Login handleLogIn={this.handleLogIn}></Login>}></Route>
             <Route path="/" render={() => <Splash latitude={this.state.latitude} longitude={this.state.longitude}></Splash>}></Route>
