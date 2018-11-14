@@ -8,6 +8,7 @@ import Login from './components/User/Login'
 import Signup from "./components/User/Signup"
 import Splash from './components/Splash/Splash'
 import jwtDecode from 'jwt-decode'
+import Show from './components/User/Show';
 
 class App extends Component {
   constructor(props) {
@@ -117,6 +118,7 @@ class App extends Component {
         <Header handleLogout={this.handleLogout} name={name} isLoggedIn={this.state.isLoggedIn} />
         <main>
           <Switch>
+            <Route path="/show" render={() => <Show {...this.props}{...this.state} />}></Route>
             <Route path="/signup" render={() => <Signup handleSignup={this.handleSignup}></Signup>}></Route>
             <Route path="/login" render={() => <Login handleLogIn={this.handleLogIn}></Login>}></Route>
             <Route path="/" render={() => <Splash latitude={this.state.latitude} longitude={this.state.longitude}></Splash>}></Route>

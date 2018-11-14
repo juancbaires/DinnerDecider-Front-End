@@ -30,7 +30,7 @@ class Header extends Component {
                     <Navbar.Collapse>
                         {this.props.isLoggedIn ? (
                             <Nav pullRight>
-                                <NavItem eventKey={1}>
+                                <NavItem eventKey={1} href="/showa">
                                     Hello, {this.props.name}
                                 </NavItem>
                                 <NavItem eventKey={2} onClick={this.props.handleLogout}>
