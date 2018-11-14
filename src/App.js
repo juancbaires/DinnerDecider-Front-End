@@ -114,7 +114,7 @@ class App extends Component {
   }
 
   ateBallMain = () => {
-    axios.get('/users/yelp').then(response => {
+    axios.get('/api/yelp').then(response => {
       console.log(response.data)
     })
   }
