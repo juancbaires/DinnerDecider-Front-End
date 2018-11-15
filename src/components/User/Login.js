@@ -34,7 +34,7 @@ class Login extends Component {
             </FormGroup>
 
             <FormGroup controlId="formHorizontalPassword">
-              <Col componentClass={ControlLabel} sm={2}>
+              <Col componentClass={ControlLabel} sm={2} onChange={this.handleChange}>
                 Password
     </Col>
               <Col sm={10}>

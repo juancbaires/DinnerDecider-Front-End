@@ -23,28 +23,6 @@
 }
 
 /**
- * Signup form is a bit larger in height then the rest`
- */
-
-.accountForms--Signup {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* max-width: 500px; */
-}
-
-.accountForms--Signup form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.signupButton {
-  align-items: center;
-}
-
-/**
  * login Image
  */
 
@@ -57,6 +35,11 @@
 }
 
 .accountLogin {
+  display: flex;
+  flex-direction: row;
+}
+
+.signupContainer {
   display: flex;
   flex-direction: row;
 }
@@ -74,7 +57,9 @@
 }
 
 /* ================== */
+
 /* SHOW =============*/
+
 /* ================== */
 
 .show-page {
@@ -107,10 +92,38 @@
   border-color: rgb(22, 49, 46);
 }
 
-.btn-success:active:focus,
-.btn-success:focus,
-.btn-success:active {
+.btn-success:active:focus, .btn-success:focus, .btn-success:active {
   color: #fff;
   background-color: rgb(22, 49, 47);
   border-color: rgb(19, 41, 38);
+  width: 400px;
+}
+
+.signupImage {
+  background-image: url('../Image/SignupImage.jpg');
+  height: 100vh;
+  width: 50vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.SignupForm {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-around;
+  width: 100%;
+}
+
+FormControl:valid {
+  border: 1px solid #3C887E !important;
+}
+
+FormControl:invalid {
+  border: 1px solid red !important;
+}
+
+.signupButton {
+  margin-top: 30px;
+  background-color: #3C887E;
+  color: white;
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Form, FormControl, FormGroup, InputGroup, ControlLabel, Button } from 'react-bootstrap'
 
 class Signup extends Component {
     state = {
@@ -12,6 +13,8 @@ class Signup extends Component {
         food6: '',
     }
 
+
+
     handleInput = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -19,38 +22,93 @@ class Signup extends Component {
     }
 
     handleSubmit = (e) => {
-      e.preventDefault()
-      this.props.handleSignup(this.state)
+        e.preventDefault()
+        this.props.handleSignup(this.state)
     }
+
     render() {
         return (
-
-            <div className="accountForms accountForms--Signup">
-                <h3>Signup</h3>
-                <p>Create username and password</p>
-                <form onSubmit={this.handleSubmit}>
+            <div className="signupContainer">
+                <div className="imageContainer">
+                    <div className="signupImage"></div>
+                </div>
+                <Form className="SignupForm" onSubmit={this.handleSubmit}>
                     <div>
-                        <div className="account--head">
-                            <input onChange={this.handleInput} name="username" placeholder="Username"></input>
-                            <input type="password" onChange={this.handleInput} name="password" placeholder="Password"></input>
-                        </div>
-                        <div className='account-container'>
-                            <div className="account--body">
-                                <p>Spouse one's favorite foods</p>
-                                <input onChange={this.handleInput} name="food1" placeholder="Favorite Food 1"></input>
-                                <input onChange={this.handleInput} name="food2" placeholder="Favorite Food 2"></input>
-                                <input onChange={this.handleInput} name="food3" placeholder="Favorite Food 3"></input>
-                            </div>
-                            <div className="account--body">
-                                <p>Spouse two's favorite foods</p>
-                                <input onChange={this.handleInput} name="food4" placeholder="Favorite Food 1"></input>
-                                <input onChange={this.handleInput} name="food5" placeholder="Favorite Food 2"></input>
-                                <input onChange={this.handleInput} name="food6" placeholder="Favorite Food 3"></input>
-                            </div>
-                        </div>
+                        <h4>Person 1</h4>
+                        <FormGroup >
+                            <ControlLabel>username</ControlLabel>{' '}
+                            <InputGroup>
+                                <InputGroup.Addon>@</InputGroup.Addon>
+                                <FormControl name="username" onChange={this.handleInput} type="text" />
+                            </InputGroup>
+                            <FormControl.Feedback />
+                        </FormGroup>
+                        <FormGroup  >
+                            <ControlLabel>Food One</ControlLabel>{' '}
+                            <InputGroup>
+                                <InputGroup.Addon>1</InputGroup.Addon>
+                                <FormControl name="food1" onChange={this.handleInput} type="text" />
+                            </InputGroup>
+                            <FormControl.Feedback />
+                        </FormGroup>
+                        <FormGroup  >
+                            <ControlLabel>Food Two</ControlLabel>{' '}
+                            <InputGroup>
+                                <InputGroup.Addon>2</InputGroup.Addon>
+                                <FormControl name="food2" onChange={this.handleInput} type="text" />
+                            </InputGroup>
+                            <FormControl.Feedback />
+                        </FormGroup>
+                        <FormGroup  >
+                            <ControlLabel>Food Three</ControlLabel>{' '}
+                            <InputGroup>
+                                <InputGroup.Addon>3</InputGroup.Addon>
+                                <FormControl name="food3" onChange={this.handleInput} type="text" />
+                            </InputGroup>
+                            <FormControl.Feedback />
+                        </FormGroup>
+
                     </div>
-                    <button className="signupButton">Signup</button>
-                </form>
+                    <div>
+                        <h4>Person 2</h4>
+                        <FormGroup type="password">
+                            <ControlLabel>Password</ControlLabel>{' '}
+                            <InputGroup>
+                                <InputGroup.Addon></InputGroup.Addon>
+                                <FormControl type="password" name="password" onChange={this.handleInput} />
+                            </InputGroup>
+                            <FormControl.Feedback />
+                        </FormGroup>
+                        <FormGroup >
+                            <ControlLabel>Food One</ControlLabel>{' '}
+                            <InputGroup>
+                                <InputGroup.Addon>1</InputGroup.Addon>
+                                <FormControl name="food4" onChange={this.handleInput} type="text" />
+                            </InputGroup>
+                            <FormControl.Feedback />
+                        </FormGroup>
+                        <FormGroup >
+                            <ControlLabel>Food Two</ControlLabel>{' '}
+                            <InputGroup>
+                                <InputGroup.Addon>2</InputGroup.Addon>
+                                <FormControl name="food5" onChange={this.handleInput} type="text" />
+                            </InputGroup>
+                            <FormControl.Feedback />
+                        </FormGroup>
+                        <FormGroup >
+                            <ControlLabel>Food Three</ControlLabel>{' '}
+                            <InputGroup>
+                                <InputGroup.Addon>3</InputGroup.Addon>
+                                <FormControl name="food6" onChange={this.handleInput} type="text" />
+                            </InputGroup>
+                            <FormControl.Feedback />
+                            <Button className="signupButton" type="submit" bsSize="large" block>
+                                Submit
+                    </Button>
+                        </FormGroup>
+
+                    </div>
+                </Form>
             </div >
 
         )
