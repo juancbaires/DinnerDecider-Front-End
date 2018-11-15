@@ -68,9 +68,23 @@
     background-size: cover;
 }
 
-.signupForms {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+.SignupForm {
+    display: flex !important;
+    flex-direction: row !important;
     justify-content: space-around;
+    width: 100%;
+}
+
+FormControl:valid {
+    border: 1px solid #3C887E !important;
+}
+
+FormControl:invalid {
+    border: 1px solid red !important;
+}
+
+.signupButton {
+    margin-top: 30px;
+    background-color: #3C887E;
+    color: white;
 }

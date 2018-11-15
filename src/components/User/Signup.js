@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { FormControl, FormGroup, InputGroup, ControlLabel, Button } from 'react-bootstrap'
+import { Form, FormControl, FormGroup, InputGroup, ControlLabel, Button } from 'react-bootstrap'
+
 class Signup extends Component {
     state = {
         username: '',
@@ -10,8 +11,8 @@ class Signup extends Component {
         food4: '',
         food5: '',
         food6: '',
-        validationState: ''
     }
+
 
 
     handleInput = (e) => {
@@ -25,35 +26,24 @@ class Signup extends Component {
         this.props.handleSignup(this.state)
     }
 
-    checkvalidation = (e) => {
-        if (e.target.value === '') {
-            this.setState({
-                validationState: 'error'
-            })
-        } else {
-            this.setState({
-                validationState: 'success'
-            })
-        }
-    }
     render() {
         return (
             <div className="signupContainer">
                 <div className="imageContainer">
                     <div className="signupImage"></div>
                 </div>
-                <form onSubmit={this.handleSubmit} className="signupForms">
+                <Form className="SignupForm" onSubmit={this.handleSubmit}>
                     <div>
-                        <h4>Spouse One/ Friend One</h4>
-                        <FormGroup onSubmit={this.handleSubmit} onSelect={this.checkvalidation} validationState={this.state.validationState}>
+                        <h4>Person 1</h4>
+                        <FormGroup >
                             <ControlLabel>username</ControlLabel>{' '}
                             <InputGroup>
-                                <InputGroup.Addon>1</InputGroup.Addon>
+                                <InputGroup.Addon>@</InputGroup.Addon>
                                 <FormControl name="username" onChange={this.handleInput} type="text" />
                             </InputGroup>
                             <FormControl.Feedback />
                         </FormGroup>
-                        <FormGroup onSelect={this.checkvalidation} validationState={this.state.validationState}>
+                        <FormGroup  >
                             <ControlLabel>Food One</ControlLabel>{' '}
                             <InputGroup>
                                 <InputGroup.Addon>1</InputGroup.Addon>
@@ -61,7 +51,7 @@ class Signup extends Component {
                             </InputGroup>
                             <FormControl.Feedback />
                         </FormGroup>
-                        <FormGroup onSelect={this.checkvalidation} validationState={this.state.validationState}>
+                        <FormGroup  >
                             <ControlLabel>Food Two</ControlLabel>{' '}
                             <InputGroup>
                                 <InputGroup.Addon>2</InputGroup.Addon>
@@ -69,22 +59,19 @@ class Signup extends Component {
                             </InputGroup>
                             <FormControl.Feedback />
                         </FormGroup>
-                        <FormGroup onSelect={this.checkvalidation} validationState={this.state.validationState}>
+                        <FormGroup  >
                             <ControlLabel>Food Three</ControlLabel>{' '}
                             <InputGroup>
                                 <InputGroup.Addon>3</InputGroup.Addon>
                                 <FormControl name="food3" onChange={this.handleInput} type="text" />
                             </InputGroup>
                             <FormControl.Feedback />
-                            <Button bsSize="large" block>
-                                Back
-                    </Button>
                         </FormGroup>
 
                     </div>
                     <div>
-                        <h4>Spouse Two/ Friend Two</h4>
-                        <FormGroup onSelect={this.checkvalidation} type="password" validationState={this.state.validationState}>
+                        <h4>Person 2</h4>
+                        <FormGroup type="password">
                             <ControlLabel>Password</ControlLabel>{' '}
                             <InputGroup>
                                 <InputGroup.Addon></InputGroup.Addon>
@@ -92,7 +79,7 @@ class Signup extends Component {
                             </InputGroup>
                             <FormControl.Feedback />
                         </FormGroup>
-                        <FormGroup onSelect={this.checkvalidation} validationState={this.state.validationState}>
+                        <FormGroup >
                             <ControlLabel>Food One</ControlLabel>{' '}
                             <InputGroup>
                                 <InputGroup.Addon>1</InputGroup.Addon>
@@ -100,7 +87,7 @@ class Signup extends Component {
                             </InputGroup>
                             <FormControl.Feedback />
                         </FormGroup>
-                        <FormGroup onSelect={this.checkvalidation} validationState={this.state.validationState}>
+                        <FormGroup >
                             <ControlLabel>Food Two</ControlLabel>{' '}
                             <InputGroup>
                                 <InputGroup.Addon>2</InputGroup.Addon>
@@ -108,20 +95,20 @@ class Signup extends Component {
                             </InputGroup>
                             <FormControl.Feedback />
                         </FormGroup>
-                        <FormGroup onSelect={this.checkvalidation} validationState={this.state.validationState}>
+                        <FormGroup >
                             <ControlLabel>Food Three</ControlLabel>{' '}
                             <InputGroup>
                                 <InputGroup.Addon>3</InputGroup.Addon>
                                 <FormControl name="food6" onChange={this.handleInput} type="text" />
                             </InputGroup>
                             <FormControl.Feedback />
-                            <Button handleSubmit={this.handleSubmit} bsSize="large" block>
+                            <Button className="signupButton" type="submit" bsSize="large" block>
                                 Submit
                     </Button>
                         </FormGroup>
 
                     </div>
-                </form>
+                </Form>
             </div >
 
         )
