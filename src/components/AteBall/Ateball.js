@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './Ateball.css'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
+
+const proxy = process.env.REACT_APP_PROXY
 
 class Ateball extends Component {
   constructor(props) {
@@ -12,8 +13,7 @@ class Ateball extends Component {
       triangleShow: 'ateball-triangle',
       titleShow: 'ateball-title',
       restaurantName: '',
-      website:
-        'https://www.google.com/maps/search/?api=1&query=',
+      website:'https://google.com/maps/search/?api=1&query=',
       clicked: false
     }
   }
@@ -59,12 +59,11 @@ class Ateball extends Component {
   randomRestaurant = (extension) => {
     let userFoods = [this.props.user.food1,this.props.user.food2,this.props.user.food3,this.props.user.food4,this.props.user.food5,this.props.user.food6]
 
-    axios.post('/api/yelp', {
+    axios.post(`${proxy}/api/yelp`, {
       foodChoice: userFoods[Math.floor(Math.random() * userFoods.length)],
       extension: extension
     }).then(response => {
       let restaurant = response.data.businesses[Math.floor(Math.random() * response.data.businesses.length)]
-      console.log(restaurant)
       this.setState({
         restaurantName: restaurant.name,
         titleShow: 'ateball-title ateball-title-show',
@@ -183,8 +182,15 @@ class Ateball extends Component {
   render() {
     return (
       <div className="wrap">
-      <h1 className={this.state.titleShow}>The AteBall has decided. You will go to...</h1>
-      {this.state.clicked? <div className={this.state.ateballRise}><div className={this.state.triangleShow}><Link target="_blank" rel="noopener noreferrer" to={this.state.website}>{this.state.restaurantName}</Link></div></div> : <div onClick={this.shake} className={this.state.ateballRise}><div className={this.state.triangleShow}><Link to={this.state.website}>{this.state.restaurantName}</Link></div></div>}
+      <h1 className={this.state.titleShow}>The AteBall has decided. You will dine in...</h1>
+      {this.state.clicked? <div className={this.state.ateballRise}><div className={this.state.triangleShow}>
+      <a rel="noopener noreferrer" target="_blank" className="restaurant-name" href={this.state.website}>{this.state.restaurantName}<br></br></a>
+      </div></div> : 
+      <div onClick={this.shake} className={this.state.ateballRise}>
+        <div className={this.state.triangleShow}>
+          <a rel="noopener noreferrer" target="_blank" className="restaurant-name" href={this.state.website}>{this.state.restaurantName}<br></br></a>
+        </div>
+      </div>}
       <canvas id="canvas" ref={this.canvasRef}>
       </canvas>
       </div>

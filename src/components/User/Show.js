@@ -15,20 +15,20 @@ class Show extends Component {
                         <div className="foods--list">
                             <h1>Person 1's foods</h1>
                             <label htmlFor="">Food 1</label>
-                            <input className="foodInput" spellcheck="true" required name="food1" onChange={this.handleInput} placeholder={user.food1}></input>
+                            <input className="foodInput" spellCheck="true" required name="food1" onChange={this.handleInput} placeholder={user.food1}></input>
                             <label htmlFor="">Food 2</label>
-                            <input className="foodInput" required name="food2" spellcheck="true" onChange={this.handleInput} placeholder={user.food2}></input>
+                            <input className="foodInput" required name="food2" spellCheck="true" onChange={this.handleInput} placeholder={user.food2}></input>
                             <label htmlFor="">Food 3</label>
-                            <input className="foodInput" spellcheck="true" required name="food3" onChange={this.handleInput} placeholder={user.food3}></input>
+                            <input className="foodInput" spellCheck="true" required name="food3" onChange={this.handleInput} placeholder={user.food3}></input>
                         </div>
                         <div className="foods--list">
                             <h1>Person 2's foods</h1>
                             <label htmlFor="">Food 1</label>
-                            <input className="foodInput" required name="food4" spellcheck="true" onChange={this.handleInput} placeholder={user.food4}></input>
+                            <input className="foodInput" required name="food4" spellCheck="true" onChange={this.handleInput} placeholder={user.food4}></input>
                             <label htmlFor="">Food 2</label>
-                            <input className="foodInput" spellcheck="true" required name="food5" onChange={this.handleInput} placeholder={user.food5}></input>
+                            <input className="foodInput" spellCheck="true" required name="food5" onChange={this.handleInput} placeholder={user.food5}></input>
                             <label htmlFor="">Food 3</label>
-                            <input className="foodInput" spellcheck="true" name="food6" onChange={this.handleInput} required placeholder={user.food6}></input>
+                            <input className="foodInput" spellCheck="true" name="food6" onChange={this.handleInput} required placeholder={user.food6}></input>
                         </div>
                     </div>
                     <button type="submit" className="loginButton">Save Foods</button>
