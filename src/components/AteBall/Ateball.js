@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Ateball.css'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 class Ateball extends Component {
   state = {
@@ -178,7 +179,7 @@ class Ateball extends Component {
     return (
       <div className="wrap">
       <h1 className={this.state.titleShow}>The AteBall has decided. You will go to...</h1>
-      {this.state.clicked? <div className={this.state.ateballRise}><div className={this.state.triangleShow}><a target="_blank" rel="noopener noreferrer" href={this.state.website}>{this.state.restaurantName}</a></div></div> : <div onClick={this.shake} className={this.state.ateballRise}><div className={this.state.triangleShow}><a href={this.state.website}>{this.state.restaurantName}</a></div></div>}
+      {this.state.clicked? <div className={this.state.ateballRise}><div className={this.state.triangleShow}><Link target="_blank" rel="noopener noreferrer" to={this.state.website}>{this.state.restaurantName}</Link></div></div> : <div onClick={this.shake} className={this.state.ateballRise}><div className={this.state.triangleShow}><Link to={this.state.website}>{this.state.restaurantName}</Link></div></div>}
       <canvas id="canvas">
       </canvas>
       </div>

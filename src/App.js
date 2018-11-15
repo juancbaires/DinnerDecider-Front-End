@@ -39,7 +39,6 @@ class App extends Component {
     }
   }
 
-
   handleLogIn = (existingUser) => {
     axios.post(`/users/login`, {
       username: existingUser.username,
@@ -56,6 +55,7 @@ class App extends Component {
         loginError: 'Wrong username/password'
       }))
   }
+
   handleLogout = () => {
     this.setState({
       username: '',
@@ -123,7 +123,9 @@ class App extends Component {
     if (this.state.longitude && this.state.latitude) {
       axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.state.latitude},${this.state.longitude}&key=${googleKey}`).then(response => {
       //set zip to our lat and long results
-      this.setState({zip: response.data.results[0].address_components[6].long_name})
+      if (response.data.results[0].address_components[6].long_name) {
+        this.setState({zip: response.data.results[0].address_components[6].long_name})
+      }
     })
     }
   }

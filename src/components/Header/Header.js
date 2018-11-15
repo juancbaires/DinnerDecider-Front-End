@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, FormControl } from "react-bootstrap"
 import './Header.css'
 import jwtDecode from 'jwt-decode'
+import {Link} from 'react-router-dom'
 
 class Header extends Component {
   state = {
@@ -24,31 +25,29 @@ class Header extends Component {
                 <Navbar inverse collapseOnSelect>
                     <Navbar.Header>
                         <Navbar.Brand>
-                            <a href="/">Ate-Ball</a>
+                            <Link to="/">Ate-Ball</Link>
                         </Navbar.Brand>
                         <Navbar.Toggle />
                     </Navbar.Header>
                     <Navbar.Collapse>
-                      <Nav><NavItem eventKey={1} href="#">Zip: <FormControl className="form-control-header" type="text" onChange={this.onChange} value={this.props.zip} /></NavItem></Nav>
+                      <Nav>
+                        <NavItem eventKey={1} href="#">Zip: <FormControl className="form-control-header" type="text" onChange={this.onChange} value={this.props.zip} />
+                        </NavItem>
+                      </Nav>
                         {this.props.isLoggedIn ? (
-                            <Nav pullRight>
-                                <NavItem eventKey={1} href={"/user/" + name}>
-                                    Hello, {name}
-                                </NavItem>
-                                <NavItem eventKey={2} onClick={this.props.handleLogout}>
-                                    Logout
-</NavItem>
-                            </Nav>
+                      <Nav pullRight>
+                      <NavItem componentClass={Link} href={"/user/" + name} to={"/user/" + name} >Hello, {name}</NavItem>
+                        <NavItem eventKey={2} onClick={this.props.handleLogout}>
+                          Logout
+                        </NavItem>
+                      </Nav>
                         ) : (
-                                <Nav pullRight>
+                      <Nav pullRight>
 
-                                    <NavItem eventKey={1} href="/login">
-                                        Login
-  </NavItem>
-                                    <NavItem eventKey={2} href="/signup">
-                                        Signup
-  </NavItem>
-                                </Nav>
+                        <NavItem eventKey={1} componentClass={Link} href="/login" to="/login" >Login</NavItem>
+
+                        <NavItem eventKey={2} componentClass={Link} href="/signup" to="/signup" >Signup</NavItem>
+                      </Nav>
                             )}
                     </Navbar.Collapse>
                 </Navbar>
