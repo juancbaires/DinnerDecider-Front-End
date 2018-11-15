@@ -11,13 +11,15 @@ import AteBall from './components/AteBall/Ateball'
 import jwtDecode from 'jwt-decode'
 import Show from './components/User/Show';
 
+let googleKey = process.env.REACT_APP_GOOGLEKEY
+
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       latitude: '',
       longitude: '',
-      city: '',
+      zip: 22044,
       isLoggedIn: false,
       loginError: '',
       signupError: '',
@@ -101,6 +103,8 @@ class App extends Component {
         this.setState({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
+        }, () => {
+          this.changeZipBasedOnCoordinates()
         })
       }, (error) => {
         this.setState({ latitude: 'err-latitude', longitude: 'err-longitude' })
@@ -109,14 +113,29 @@ class App extends Component {
 
   }
 
+  zipChange = (zip) => {
+    this.setState({
+      zip: zip
+    })
+  }
+
+  changeZipBasedOnCoordinates = () => {
+    if (this.state.longitude && this.state.latitude) {
+      axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.state.latitude},${this.state.longitude}&key=${googleKey}`).then(response => {
+      //set zip to our lat and long results
+      this.setState({zip: response.data.results[0].address_components[6].long_name})
+    })
+    }
+  }
+
   render() {
     return (
       <div>
-        <Header handleLogout={this.handleLogout} name={this.state.user.username} isLoggedIn={this.state.isLoggedIn} />
+        <Header zipChange={this.zipChange} zip={this.state.zip} handleLogout={this.handleLogout} name={this.state.user.username} isLoggedIn={this.state.isLoggedIn} />
         <main>
           <Switch>
             <Route path="/user/:username" render={() => <Show {...this.props}{...this.state} />}></Route>
-            <Route path="/ateball" render={() => <AteBall latitude={this.state.latitude} longitude={this.state.longitude} user={this.state.user} ateBallMain={this.ateBallMain}></AteBall>}></Route>
+            <Route path="/ateball" render={() => <AteBall zip={this.state.zip} latitude={this.state.latitude} longitude={this.state.longitude} user={this.state.user} ateBallMain={this.ateBallMain}></AteBall>}></Route>
             <Route path="/signup" render={() => <Signup handleSignup={this.handleSignup}></Signup>}></Route>
             <Route path="/login" render={() => <Login handleLogIn={this.handleLogIn}></Login>}></Route>
             <Route path="/" render={() => <Splash latitude={this.state.latitude} longitude={this.state.longitude}></Splash>}></Route>

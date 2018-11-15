@@ -3,23 +3,23 @@
  */
 
 .account--head {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .account--body {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
 .account-container {
-    display: flex;
-    padding: 10px;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  padding: 10px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 /**
@@ -27,21 +27,21 @@
  */
 
 .accountForms--Signup {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* max-width: 500px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* max-width: 500px; */
 }
 
 .accountForms--Signup form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .signupButton {
-    align-items: center;
+  align-items: center;
 }
 
 /**
@@ -49,26 +49,68 @@
  */
 
 .image {
-    background-image: url('../Image/login_image.jpg');
-    height: 100vh;
-    width: 70vw;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url('../Image/login_image.jpg');
+  height: 100vh;
+  width: 70vw;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .accountLogin {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .sideForm {
-    height: 500px;
-    display: flex;
-    justify-content: space-around;
-    align-self: center;
-    width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: space-around;
+  align-self: center;
+  width: 500px;
 }
 
 .form-horizontal {
-    width: 400px;
+  width: 400px;
+}
+
+/* ================== */
+/* SHOW =============*/
+/* ================== */
+
+.show-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.show-title {
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.show-button-container {
+  text-align: center;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #3C887E;
+  border-color: rgb(47, 105, 98);
+}
+
+.btn-success:hover {
+  color: #fff;
+  background-color: rgb(31, 70, 65);
+  border-color: rgb(22, 49, 46);
+}
+
+.btn-success:active:focus,
+.btn-success:focus,
+.btn-success:active {
+  color: #fff;
+  background-color: rgb(22, 49, 47);
+  border-color: rgb(19, 41, 38);
 }

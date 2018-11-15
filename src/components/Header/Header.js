@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavItem } from "react-bootstrap"
+import { Navbar, Nav, NavItem, FormControl } from "react-bootstrap"
 import './Header.css'
 import jwtDecode from 'jwt-decode'
 
 class Header extends Component {
+  state = {
+    headerZip: ''
+  }
+
+
+  onChange = (e) => {
+    this.props.zipChange(e.target.value)
+  }
+
     render() {
       let name
       if (localStorage.token) {
         name = jwtDecode(localStorage.token).username
       }
+
         return (
             <div>
                 <Navbar inverse collapseOnSelect>
@@ -19,6 +29,7 @@ class Header extends Component {
                         <Navbar.Toggle />
                     </Navbar.Header>
                     <Navbar.Collapse>
+                      <Nav><NavItem eventKey={1} href="#">Zip: <FormControl className="form-control-header" type="text" onChange={this.onChange} value={this.props.zip} /></NavItem></Nav>
                         {this.props.isLoggedIn ? (
                             <Nav pullRight>
                                 <NavItem eventKey={1} href={"/user/" + name}>

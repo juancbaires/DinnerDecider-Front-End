@@ -14,22 +14,48 @@ class Ateball extends Component {
   }
 
   shake = () => {
-    this.ateBallMain()
-    this.setState({
-      ateballRise: 'ateball ateball-shake',
-      triangleShow: 'ateball-triangle ateball-triangle-show'
-    })
+    //if user is logged in
+    if (this.props.user.food1) {
+      this.ateBallMain()
+      this.setState({
+        ateballRise: 'ateball ateball-shake',
+        triangleShow: 'ateball-triangle ateball-triangle-show'
+      })
+    } else {
+      console.log('user not logged in. Ball will not work')
+    }
   }
 
 
   ateBallMain = () => {
+    //if user is logged in
+    if (this.props.user.food1) {
+      //and we have location of user
+      if (this.props.latitude && this.props.longitude) {
+        //get the randomRestaurant using coordinates
+        console.log(`&latitude=${this.props.latitude}&longitude=${this.props.longitude}`)
+        this.randomRestaurant(`&latitude=${this.props.latitude}&longitude=${this.props.longitude}`)
+      //but if we have don't have coordinates but we do have the zip code
+      } else if (this.props.zip) {
+        //get the randomRestaurant using zip code
+        console.log(`&location=${this.props.zip}`)
+        this.randomRestaurant(`&location=${this.props.zip}`)
+      //if user is logged in but we don't have the zip
+      } else {
+        console.log('please enter a zip')
+      }
+    //if user is not logged in
+    } else {
+      console.log('you are not logged in,')
+    }
+  }
+
+  randomRestaurant = (extension) => {
     let userFoods = [this.props.user.food1,this.props.user.food2,this.props.user.food3,this.props.user.food4,this.props.user.food5,this.props.user.food6]
-    console.log(this.props.latitude, this.props.longitude)
-    console.log(userFoods)
+
     axios.post('/api/yelp', {
       foodChoice: userFoods[Math.floor(Math.random() * userFoods.length)],
-      latitude: this.props.latitude,
-      longitude: this.props.longitude
+      extension: extension
     }).then(response => {
       let restaurant = response.data.businesses[Math.floor(Math.random() * response.data.businesses.length)]
       console.log(restaurant)
