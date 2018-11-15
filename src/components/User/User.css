@@ -6,6 +6,18 @@ input {
   margin: 5px;
 }
 
+a,
+a:visited,
+a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
 .account--head {
   display: flex;
   flex-direction: column;
@@ -136,13 +148,17 @@ label {
 }
 
 .loginButton {
-  height: 30px;
-  width: 85px;
+  padding: 8px 15px;
+  font-size: 2rem;
   border-radius: 4px;
   margin: 5px;
-  margin-top: 10px;
+  margin-top: 20px;
   background-color: #3C887E;
   color: white;
+}
+
+a.loginButton {
+  display: inline-block;
 }
 
 input {

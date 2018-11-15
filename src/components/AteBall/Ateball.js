@@ -79,7 +79,7 @@ class Ateball extends Component {
   }
     stars = () => {
       //Stars Canvas from Giana at codepen => https://codepen.io/giana/pen/qbWNYy
-      var canvas = document.getElementById('canvas'),
+      let canvas = document.querySelector('#canvas'),
       ctx = canvas.getContext('2d'),
       w = canvas.width = window.innerWidth,
       h = canvas.height = window.innerHeight,
