@@ -39,8 +39,7 @@ input {
   justify-content: space-between;
 }
 
-.person1-foods,
-.person2-foods {
+.person1-foods, .person2-foods {
   display: flex;
   flex-direction: column;
 }
@@ -114,9 +113,7 @@ input {
   border-color: rgb(22, 49, 46);
 }
 
-.btn-success:active:focus,
-.btn-success:focus,
-.btn-success:active {
+.btn-success:active:focus, .btn-success:focus, .btn-success:active {
   color: #fff;
   background-color: rgb(22, 49, 47);
   border-color: rgb(19, 41, 38);

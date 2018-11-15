@@ -122,11 +122,11 @@ class App extends Component {
   changeZipBasedOnCoordinates = () => {
     if (this.state.longitude && this.state.latitude) {
       axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.state.latitude},${this.state.longitude}&key=${googleKey}`).then(response => {
-      //set zip to our lat and long results
-      if (response.data.results[0].address_components[6].long_name) {
-        this.setState({zip: response.data.results[0].address_components[6].long_name})
-      }
-    })
+        //set zip to our lat and long results
+        if (response.data.results[0].address_components[6].long_name) {
+          this.setState({ zip: response.data.results[0].address_components[6].long_name })
+        }
+      })
     }
   }
 

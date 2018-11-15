@@ -25,7 +25,7 @@ class Login extends Component {
         <div className="sideForm">
           <Form horizontal onSubmit={this.handleSubmit}>
             <FormGroup controlId="formHorizontalEmail">
-              <Col componentClass={ControlLabel} sm={2}>
+              <Col classname="colUsername" componentClass={ControlLabel} sm={2}>
                 Username
     </Col>
               <Col sm={10}>
