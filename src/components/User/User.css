@@ -26,25 +26,15 @@ input {
   align-items: center;
 }
 
+.signupButton {
+  align-items: center;
+}
+
 /**
  * login Image
  */
 
-.show-form {
-  max-width: 70%;
-}
-
-.foods {
-  display: flex;
-  justify-content: space-between;
-}
-
-.person1-foods, .person2-foods {
-  display: flex;
-  flex-direction: column;
-}
-
-.image {
+.loginImage {
   background-image: url('../Image/login_image.jpg');
   height: 100vh;
   width: 70vw;
@@ -65,65 +55,27 @@ input {
 .sideForm {
   height: 500px;
   display: flex;
-  justify-content: space-around;
-  align-self: center;
-  width: 500px;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+
+.sideForm2 {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
 }
 
 .form-horizontal {
   width: 400px;
 }
 
-/* ================== */
-
-/* SHOW =============*/
-
-/* ================== */
-
-.show-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 100px;
-}
-
-.show-title {
-  font-size: 4rem;
-  font-weight: bold;
-  text-align: center;
-}
-
-.show-button-container {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.btn-success {
-  color: #fff;
-  background-color: #3C887E;
-  border-color: rgb(47, 105, 98);
-}
-
-.btn-success:hover {
-  color: #fff;
-  background-color: rgb(31, 70, 65);
-  border-color: rgb(22, 49, 46);
-}
-
-.btn-success:active:focus, .btn-success:focus, .btn-success:active {
-  color: #fff;
-  background-color: rgb(22, 49, 47);
-  border-color: rgb(19, 41, 38);
-  width: 400px;
-}
-
 .signupImage {
   background-image: url('../Image/SignupImage.jpg');
   height: 100vh;
-  width: 50vw;
+  width: 80vw;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -149,6 +101,81 @@ FormControl:invalid {
   color: white;
 }
 
-.random-diner {
-  display: block;
+.LoginForm input {
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.LoginForm {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+label {
+  margin: 5px;
+}
+
+.loginForm--head {
+  display: flex;
+  flex-direction: column;
+}
+
+.labels, .inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.loginButton {
+  height: 30px;
+  width: 85px;
+  border-radius: 4px;
+  margin: 5px;
+  margin-top: 10px;
+  background-color: #3C887E;
+  color: white;
+}
+
+input {
+  margin: 5px;
+}
+
+.foods {
+  display: flex;
+  justify-content: space-between;
+}
+
+.foods--list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 47%;
+}
+
+@media screen and (max-width: 600px) {
+  .accountLogin {
+    flex-direction: column;
+    width: 100%;
+  }
+  .loginImage, .signupImage {
+    width: 100%;
+    order: 1;
+  }
+  .sideForm, {
+    width: 100%;
+    order: 0;
+  }
+  .sideForm2 {
+    width: 100%;
+    order: 0;
+    margin-bottom: 35px;
+  }
 }
