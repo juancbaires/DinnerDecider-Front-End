@@ -81,6 +81,7 @@ class Splash extends Component {
             onMouseEnter={this.riseBall}
             onMouseLeave={this.hideBall}
             onClick={this.showTriangle}
+            className="splash-button"
           >
             Random Diner
           </Button>

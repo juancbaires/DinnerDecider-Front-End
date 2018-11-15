@@ -51,6 +51,11 @@
   border-color: rgb(19, 41, 38);
 }
 
+.splash-button {
+  width: 100%;
+  font-size: 2rem;
+}
+
 /* Eight ball image built by Justin Khoo,
 you can find the original work on codepen here https://codepen.io/freshinbox/pen/VQpQyo */
 
