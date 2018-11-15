@@ -23,7 +23,8 @@ class App extends Component {
       isLoggedIn: false,
       loginError: '',
       signupError: '',
-      user: {}
+      user: {},
+      updateError: ''
     }
     this.getMyLocation = this.getMyLocation.bind(this)
   }
@@ -91,6 +92,7 @@ class App extends Component {
         });
       });
   };
+
 
   // got this code from stackoverflow After successfully implementing a react geolocation component but then
   // I switched to this method because it plays better with other components and it sets state

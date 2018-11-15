@@ -6,9 +6,7 @@ input {
   margin: 5px;
 }
 
-a,
-a:visited,
-a:hover {
+a, a:visited, a:hover {
   color: white;
   text-decoration: none;
 }
@@ -140,8 +138,7 @@ label {
   flex-direction: column;
 }
 
-.labels,
-.inputs {
+.labels, .inputs {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -170,6 +167,14 @@ input {
   justify-content: space-between;
 }
 
+.foods2 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 2;
+  padding-top: 30px;
+}
+
 .foods--list {
   display: flex;
   flex-direction: column;
@@ -177,11 +182,55 @@ input {
   width: 47%;
 }
 
+.foods--list2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 /* SHOW FORM */
 
 .show-title {
   text-align: center;
-  margin-top: 30px;
+  font-size: 48px;
+  font-weight: 600;
+  margin: 0;
+  padding-top: 15px;
+  color: white;
+}
+
+.show-page {
+  height: 100%;
+  border: 1px solid grey;
+  background-color: white;
+  z-index: 4;
+  position: absolute;
+}
+
+.ShowImage {
+  background-image: url('../Image/ShowimageTwo.jpg');
+  height: 100vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+}
+
+.LoginForm2 {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  background-color: white;
+  height: 65vh;
+  margin-top: 15px;
+  border-radius: 6px;
+}
+
+.foodInput {
+  border: 1px solid #3C887E;
+  height: 32px;
+  border-radius: 3px;
 }
 
 @media screen and (max-width: 600px) {
@@ -189,19 +238,14 @@ input {
     flex-direction: column;
     width: 100%;
   }
-
-  .loginImage,
-  .signupImage {
+  .loginImage, .signupImage {
     width: 100%;
     order: 1;
   }
-
-  .sideForm,
-    {
+  .sideForm, {
     width: 100%;
     order: 0;
   }
-
   .sideForm2 {
     width: 100%;
     order: 0;
