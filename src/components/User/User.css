@@ -128,7 +128,8 @@ label {
   flex-direction: column;
 }
 
-.labels, .inputs {
+.labels,
+.inputs {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -160,19 +161,31 @@ input {
   width: 47%;
 }
 
+/* SHOW FORM */
+
+.show-title {
+  text-align: center;
+  margin-top: 30px;
+}
+
 @media screen and (max-width: 600px) {
   .accountLogin {
     flex-direction: column;
     width: 100%;
   }
-  .loginImage, .signupImage {
+
+  .loginImage,
+  .signupImage {
     width: 100%;
     order: 1;
   }
-  .sideForm, {
+
+  .sideForm,
+    {
     width: 100%;
     order: 0;
   }
+
   .sideForm2 {
     width: 100%;
     order: 0;
