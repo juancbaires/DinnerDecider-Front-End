@@ -2,6 +2,10 @@
  * forms
  */
 
+input {
+  margin: 5px;
+}
+
 .account--head {
   display: flex;
   flex-direction: column;
@@ -48,6 +52,21 @@
  * login Image
  */
 
+.show-form {
+  max-width: 70%;
+}
+
+.foods {
+  display: flex;
+  justify-content: space-between;
+}
+
+.person1-foods,
+.person2-foods {
+  display: flex;
+  flex-direction: column;
+}
+
 .image {
   background-image: url('../Image/login_image.jpg');
   height: 100vh;
@@ -93,6 +112,9 @@
 
 .show-button-container {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-success {
@@ -113,4 +135,8 @@
   color: #fff;
   background-color: rgb(22, 49, 47);
   border-color: rgb(19, 41, 38);
+}
+
+.random-diner {
+  display: block;
 }
