@@ -3,88 +3,175 @@
  */
 
 .account--head {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .account--body {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
 .account-container {
-    display: flex;
-    padding: 10px;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  padding: 10px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .signupButton {
-    align-items: center;
+  align-items: center;
 }
 
 /**
  * login Image
  */
 
-.image {
-    background-image: url('../Image/login_image.jpg');
-    height: 100vh;
-    width: 70vw;
-    background-repeat: no-repeat;
-    background-size: cover;
+.loginImage {
+  background-image: url('../Image/login_image.jpg');
+  height: 100vh;
+  width: 70vw;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .accountLogin {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .signupContainer {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .sideForm {
-    height: 500px;
-    display: flex;
-    justify-content: space-around;
-    align-self: center;
-    width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+
+.sideForm2 {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
 }
 
 .form-horizontal {
-    width: 400px;
+  width: 400px;
 }
 
 .signupImage {
-    background-image: url('../Image/SignupImage.jpg');
-    height: 100vh;
-    width: 50vw;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url('../Image/SignupImage.jpg');
+  height: 100vh;
+  width: 80vw;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .SignupForm {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-around;
-    width: 100%;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-around;
+  width: 100%;
 }
 
 FormControl:valid {
-    border: 1px solid #3C887E !important;
+  border: 1px solid #3C887E !important;
 }
 
 FormControl:invalid {
-    border: 1px solid red !important;
+  border: 1px solid red !important;
 }
 
 .signupButton {
-    margin-top: 30px;
-    background-color: #3C887E;
-    color: white;
+  margin-top: 30px;
+  background-color: #3C887E;
+  color: white;
+}
+
+.LoginForm input {
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.LoginForm {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+label {
+  margin: 5px;
+}
+
+.loginForm--head {
+  display: flex;
+  flex-direction: column;
+}
+
+.labels, .inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.loginButton {
+  height: 30px;
+  width: 85px;
+  border-radius: 4px;
+  margin: 5px;
+  margin-top: 10px;
+  background-color: #3C887E;
+  color: white;
+}
+
+input {
+  margin: 5px;
+}
+
+.foods {
+  display: flex;
+  justify-content: space-between;
+}
+
+.foods--list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 47%;
+}
+
+@media screen and (max-width: 600px) {
+  .accountLogin {
+    flex-direction: column;
+    width: 100%;
+  }
+  .loginImage, .signupImage {
+    width: 100%;
+    order: 1;
+  }
+  .sideForm, {
+    width: 100%;
+    order: 0;
+  }
+  .sideForm2 {
+    width: 100%;
+    order: 0;
+    margin-bottom: 35px;
+  }
 }
