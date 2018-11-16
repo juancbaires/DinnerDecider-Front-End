@@ -55,6 +55,12 @@ class App extends Component {
     }
   }
 
+  newFoods = (obj) => {
+    this.setState({
+      user: obj
+    })
+  }
+
   handleLogIn = (existingUser) => {
     axios.post(`${proxy}/users/login`, {
       username: existingUser.username,
@@ -158,7 +164,7 @@ class App extends Component {
         <Header zipChange={this.zipChange} zip={this.state.zip} handleLogout={this.handleLogout} name={this.state.user.username} isLoggedIn={this.state.isLoggedIn} />
         <main>
           <Switch>
-            <Route path="/user/:username" render={() => <Show setUser={this.setUser} {...this.props}{...this.state} />}></Route>
+            <Route path="/user/:username" render={() => <Show setUser={this.setUser} newFoods={this.newFoods} {...this.props}{...this.state} />}></Route>
             <Route path="/ateball" render={() => <AteBall zip={this.state.zip} latitude={this.state.latitude} longitude={this.state.longitude} user={this.state.user} ateBallMain={this.ateBallMain}></AteBall>}></Route>
             <Route path="/signup" render={() => <Signup handleSignup={this.handleSignup}></Signup>}></Route>
             <Route path="/login" render={() => <Login handleLogIn={this.handleLogIn}></Login>}></Route>
