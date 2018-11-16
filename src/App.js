@@ -160,8 +160,8 @@ class App extends Component {
           <Switch>
             <Route path="/user/:username" render={() => <Show handleLogout={this.handleLogout} setUser={this.setUser} newFoods={this.newFoods} {...this.props}{...this.state} />}></Route>
             <Route path="/ateball" render={() => <AteBall zip={this.state.zip} latitude={this.state.latitude} longitude={this.state.longitude} user={this.state.user} ateBallMain={this.ateBallMain}></AteBall>}></Route>
-            <Route path="/signup" render={() => <Signup handleSignup={this.handleSignup}></Signup>}></Route>
-            <Route path="/login" render={() => <Login handleLogIn={this.handleLogIn}></Login>}></Route>
+            <Route path="/signup" render={() => <Signup handleSignup={this.handleSignup} {...this.state}></Signup>}></Route>
+            <Route path="/login" render={() => <Login handleLogIn={this.handleLogIn} {...this.state}></Login>}></Route>
             <Route path="/" render={() => <Splash latitude={this.state.latitude} longitude={this.state.longitude}></Splash>}></Route>
           </Switch>
         </main>

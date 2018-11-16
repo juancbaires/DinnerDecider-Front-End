@@ -22,6 +22,7 @@ class Login extends Component {
         <div className="sideForm">
           <form onSubmit={this.handleSubmit} className="LoginForm">
             <h1>Login</h1>
+            <p className="warning">{this.props.loginError}</p>
             <div className="loginForm--head">
               <label htmlFor="">Username</label>
               <input name="username" onChange={this.handleChange} placeholder="Username"></input>

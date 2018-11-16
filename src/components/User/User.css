@@ -318,3 +318,8 @@ input {
     width: 90%
   }
 }
+
+.warning {
+  color: red;
+  font-size: 16px;
+}

@@ -32,6 +32,7 @@ class Signup extends Component {
                 <div className="sideForm2">
                     <form onSubmit={this.handleSubmit} className="LoginForm">
                         <h1>Signup</h1>
+                        <p className="warning">{this.props.signupError}</p>
                         <div className="loginForm--head">
                             <label htmlFor="">Username</label>
                             <input name="username" onChange={this.handleInput} placeholder="Username"></input>
