@@ -33,7 +33,7 @@ class Show extends Component {
             `${proxy}/users/${this.props.user.id}`, this.state,
             {
               headers: {
-                Authorization: localStorage.token
+                Authorization: Bearer localStorage.token
               }
             }
           )
