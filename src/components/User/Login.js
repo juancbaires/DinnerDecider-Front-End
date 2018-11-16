@@ -28,7 +28,7 @@ class Login extends Component {
               <label htmlFor="">Password</label>
               <input name="password" onChange={this.handleChange} type="password" placeholder="Password"></input>
             </div>
-            <button type="submit" className="loginButton">Login</button>
+            <button type="submit" className="green-button">Login</button>
           </form>
         </div>
       </div >

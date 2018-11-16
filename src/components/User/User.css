@@ -4,9 +4,12 @@
 
 input {
   margin: 5px;
+  padding: 5px;
 }
 
-a, a:visited, a:hover {
+a,
+a:visited,
+a:hover {
   color: white;
   text-decoration: none;
 }
@@ -138,13 +141,38 @@ label {
   flex-direction: column;
 }
 
-.labels, .inputs {
+.labels,
+.inputs {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
-.loginButton {
+.red-button {
+  padding: 8px 15px;
+  font-size: 12px;
+  border-radius: 4px;
+  margin: 5px;
+  margin-top: 12px;
+  background-color: tomato;
+  color: white;
+  transition: .2s;
+}
+
+.red-button:after {
+  content: 'Delete account?'
+}
+
+.red-button:hover {
+  background-color: rgb(186, 71, 51);
+  padding: 8px 31px;
+}
+
+.red-button:hover:after {
+  content: 'Please, No!'
+}
+
+.green-button {
   padding: 8px 15px;
   font-size: 2rem;
   border-radius: 4px;
@@ -152,9 +180,14 @@ label {
   margin-top: 20px;
   background-color: #3C887E;
   color: white;
+  transition: .2s;
 }
 
-a.loginButton {
+.green-button:hover {
+  background: rgb(31, 70, 64)
+}
+
+a.green-button {
   display: inline-block;
 }
 
@@ -233,22 +266,71 @@ input {
   border-radius: 3px;
 }
 
+@media screen and (max-width: 400px) {
+  .green-button {
+    font-size: 1rem;
+    padding: 6px 10px;
+  }
+
+  .red-button {
+    font-size: 1rem;
+    padding: 6px 10px;
+  }
+
+  input {
+    width: 80%;
+  }
+
+  label {
+    font-size: 1rem;
+  }
+
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .accountLogin {
     flex-direction: column;
     width: 100%;
   }
-  .loginImage, .signupImage {
+
+  .foods2 {
+    padding-top: 0px;
+  }
+
+  .loginImage,
+  .signupImage {
     width: 100%;
     order: 1;
   }
-  .sideForm, {
+
+  .save-button {
+    padding: 6px 10px;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+
+  .sideForm,
+    {
     width: 100%;
     order: 0;
   }
+
   .sideForm2 {
     width: 100%;
     order: 0;
     margin-bottom: 35px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .LoginForm2 {
+    padding: 20px;
+    width: 90%
   }
 }

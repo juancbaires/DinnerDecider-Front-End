@@ -107,10 +107,12 @@ class Show extends Component {
                                 <input value={this.state.food6} className="foodInput" spellCheck="true" name="food6" onChange={this.handleInput} required placeholder={user.food6}></input>
                             </div>
                         </div>
-                        <button type="submit" className="loginButton">Save Foods</button>
-                        <span>or</span>
-                        <Link to="/ateball" className="loginButton">Ateball me!</Link>
-                        <button onClick={this.deleteAccount} className="loginButton">Delete Ateball Account?</button>
+                        <div>
+                          <button type="submit" className="green-button save-button">Save foods</button>
+                          <span className="hide-mobile">or</span>
+                          <Link to="/ateball" className="green-button">Ateball me!</Link>
+                        </div>
+                        <button onClick={this.deleteAccount} className="red-button"></button>
                     </form>
 
                 </div>

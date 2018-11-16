@@ -56,7 +56,7 @@ class Signup extends Component {
                                 <input className="foodInput" name="food6" onChange={this.handleInput} placeholder="Food 3"></input>
                             </div>
                         </div>
-                        <button type="submit" className="loginButton">Signup</button>
+                        <button type="submit" className="green-button">Signup</button>
                     </form>
                 </div>
             </div >
