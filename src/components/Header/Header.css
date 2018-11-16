@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Boogaloo');
 
 .navbar-brand {
-  font-family: 'Boogaloo', cursive;
+  font-family: 'Boogaloo', sans-serif;
   font-size: 3rem;
 }
 

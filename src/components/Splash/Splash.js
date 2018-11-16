@@ -7,7 +7,7 @@ const zomato = process.env.REACT_APP_ZOMATOKEY
 
 class Splash extends Component {
   state = {
-    ballClass: 'eight-ball lower',
+    ballClass: 'eight-ball hide',
     triangleClass: 'triangle',
     randomPick: {},
     clicked: false,
