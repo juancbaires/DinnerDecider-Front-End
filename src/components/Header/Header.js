@@ -10,10 +10,6 @@ class Header extends Component {
     this.props.zipChange(e.target.value)
   }
 
-  handleSubmit = () => {
-
-  }
-
     render() {
       let name
       if (localStorage.token) {

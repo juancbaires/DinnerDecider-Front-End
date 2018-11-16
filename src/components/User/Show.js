@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './User.css'
 import { Link } from 'react-router-dom'
 import Axios from 'axios';
-import jwtDecode from 'jwt-decode'
 
 const proxy = process.env.REACT_APP_PROXY
 
@@ -19,13 +18,17 @@ class Show extends Component {
     }
   }
 
+  componentDidMount() {
+    this.props.setUser()
+  }
+
     handleInput = (e) => {
       this.setState({
         [e.target.name]: e.target.value
       })
     }
 
-    handleSubmit = e => {
+    updateFoods = e => {
       e.preventDefault();
       if (localStorage.token) {
         Axios
@@ -57,6 +60,24 @@ class Show extends Component {
       }
     }
 
+    deleteAccount = () => {
+      if (localStorage.token) {
+        Axios
+          .delete(
+            `${proxy}/users/${this.props.user.id}`, {
+            headers: {
+              authorization: "Bearer" + localStorage.token
+            }
+          })
+          .then(deletedUser => {
+            this.props.handleLogout();
+          })
+          .then(_ => {
+            this.props.history.push('/');
+          });
+      }
+    }
+
 
     render() {
         let { user } = this.props
@@ -65,7 +86,7 @@ class Show extends Component {
                 <div className="ShowImage">
                     {/* user.username is undefined the first time, so nothing gets rendered. The second time, both are truthy so JS returns the second truthy, which is user.username.toUpperCase()  */}
                     <h1 className="show-title">{user.username && "Welcome " + user.username.charAt(0).toUpperCase() + user.username.slice(1) + "!"}</h1>
-                    <form onSubmit={this.handleSubmit} className="LoginForm2">
+                    <form onSubmit={this.updateFoods} className="LoginForm2">
                         <div className="foods2">
                             <div className="foods--list2">
                                 <h1>Person 1's foods</h1>
@@ -89,7 +110,9 @@ class Show extends Component {
                         <button type="submit" className="loginButton">Save Foods</button>
                         <span>or</span>
                         <Link to="/ateball" className="loginButton">Ateball me!</Link>
+                        <button onClick={this.deleteAccount} className="loginButton">Delete Ateball Account?</button>
                     </form>
+
                 </div>
             </div>
         );
