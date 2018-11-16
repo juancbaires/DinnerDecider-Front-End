@@ -1,10 +1,32 @@
 import React, { Component } from 'react';
 import './User.css'
 import {Link} from 'react-router-dom'
+import Axios from 'axios';
+
+const proxy = process.env.REACT_APP_PROXY
 
 class Show extends Component {
+  state = {
+    food1: '',
+    food2: '',
+    food3: '',
+    food4: '',
+    food5: '',
+    food6: ''
+  }
+
+  onChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  handleSubmit = () => {
+    Axios.put(`${proxy}/${this.props.user.id}`)
+  }
 
     render() {
+      console.log(`${proxy}/${this.props.user.id}`)
       let { user } = this.props
         return (
             <div className="show-page">

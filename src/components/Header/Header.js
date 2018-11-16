@@ -35,7 +35,7 @@ class Header extends Component {
                       </Nav>
                         {this.props.isLoggedIn ? (
                       <Nav pullRight>
-                      <NavItem componentClass={Link} href={"/user/" + name} to={"/user/" + name} className="header-link" >Hello, {name}</NavItem>
+                      <NavItem componentClass={Link} href={"/user/" + name} to={"/user/" + name} className="header-link" >Hello, {name.charAt(0).toUpperCase() + name.slice(1)}</NavItem>
 
                         <NavItem eventKey={2} className="header-link" onClick={this.props.handleLogout}>
                           Logout

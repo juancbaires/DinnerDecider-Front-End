@@ -93,7 +93,7 @@ class Splash extends Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {this.state.randomPick.name}
+              {this.state.randomPick.name}<br></br>
             </a>
           </div>
         </div>

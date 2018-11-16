@@ -178,6 +178,7 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
   justify-content: center;
   align-items: flex-start;
   padding-top: 10px;
+  overflow: scroll;
 }
 
 .triangle-show {
