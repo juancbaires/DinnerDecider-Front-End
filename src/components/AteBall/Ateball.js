@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Ateball.css'
 import axios from 'axios'
-import { Modal, Button } from "react-bootstrap"
+import { Modal } from "react-bootstrap"
 const proxy = process.env.REACT_APP_PROXY
 
 class Ateball extends Component {
@@ -228,7 +228,6 @@ class Ateball extends Component {
         <div id={this.state.modalClass} className="static-modal">
           <Modal.Dialog>
             <Modal.Body>
-
               <ul className="modalBox">
                 <h1 className="modalHeader">{this.state.restaurantName}</h1>
                 <li className="modalBox--list"><img className="modalBox--image" src={this.state.image} alt="location/food snap shot" /></li>
@@ -238,13 +237,17 @@ class Ateball extends Component {
                 <li className="modalBox--list">{this.state.phoneNumber}</li>
                 <li className="modalBox--list">Ratings:{' '}{this.state.rating}</li>
                 <li className="modalBox--list">{this.state.price}</li>
-                <li className="modalBox--list"><a href={this.state.website}></a>Visit Site</li>
-                <li className="modalBox--list">Service offered:{' '}{this.state.type[0]}{this.state.type[1]}</li>
+                <a className="website" href={this.state.website}>Visit Website</a>
+                <li className="modalBox--list">Service offered:{" " + this.state.type[0] + " | " + this.state.type[1]}</li>
               </ul>
+              <div className="modal--footer">
+                <a className="green-button" href="#" onClick={this.styleEnds} >Close</a>
+                <a className="red-button-yelp" target="_blank" href={this.state.url} >Yelp It</a>
+              </div>
             </Modal.Body>
-            <a className="green-button" href="#" onClick={this.styleEnds} >Close</a>
-            <a className="red-button" href={this.state.url} onClick={this.styleEnds} >Yelp It</a>
+
           </Modal.Dialog>
+
         </div>
       </div>
     );

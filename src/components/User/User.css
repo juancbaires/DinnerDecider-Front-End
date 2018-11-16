@@ -7,9 +7,7 @@ input {
   padding: 5px;
 }
 
-a,
-a:visited,
-a:hover {
+a, a:visited, a:hover {
   color: white;
   text-decoration: none;
 }
@@ -141,8 +139,7 @@ label {
   flex-direction: column;
 }
 
-.labels,
-.inputs {
+.labels, .inputs {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -271,21 +268,16 @@ input {
     font-size: 1rem;
     padding: 6px 10px;
   }
-
   .red-button {
     font-size: 1rem;
     padding: 6px 10px;
   }
-
   input {
     width: 80%;
   }
-
   label {
     font-size: 1rem;
   }
-
-
   h1 {
     font-size: 2rem;
   }
@@ -296,31 +288,23 @@ input {
     flex-direction: column;
     width: 100%;
   }
-
   .foods2 {
     padding-top: 0px;
   }
-
-  .loginImage,
-  .signupImage {
+  .loginImage, .signupImage {
     width: 100%;
     order: 1;
   }
-
   .save-button {
     padding: 6px 10px;
   }
-
   .hide-mobile {
     display: none;
   }
-
-  .sideForm,
-    {
+  .sideForm, {
     width: 100%;
     order: 0;
   }
-
   .sideForm2 {
     width: 100%;
     order: 0;
