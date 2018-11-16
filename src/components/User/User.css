@@ -46,7 +46,7 @@ button {
  */
 
 .loginImage {
-  background-image: url('../Image/login_image.jpg');
+  background-image: url(' https://images.unsplash.com/photo-1526361547623-9dd08c979bb1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=92bc14eb7747eb58511a7d4b1227db06&auto=format&fit=crop&w=634&q=80');
   height: 100vh;
   width: 70vw;
   background-repeat: no-repeat;
@@ -84,7 +84,7 @@ button {
 }
 
 .signupImage {
-  background-image: url('../Image/SignupImage.jpg');
+  background-image: url('https://images.unsplash.com/photo-1492914194644-9685e8794ef0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8d3e46d7df1bea309e9d1ea9f700d2ed&auto=format&fit=crop&w=500&q=60');
   height: 100vh;
   width: 80vw;
   background-repeat: no-repeat;
@@ -248,7 +248,7 @@ input {
 }
 
 .LoginForm2 {
-  width: 80%;
+  width: 50%;
   margin: auto;
   text-align: center;
   background-color: white;
@@ -261,6 +261,8 @@ input {
   border: 1px solid #3C887E;
   height: 32px;
   border-radius: 3px;
+  height: 44px;
+  font-size: 2rem;
 }
 
 @media screen and (max-width: 400px) {

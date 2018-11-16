@@ -237,7 +237,7 @@ class Ateball extends Component {
                 <li className="modalBox--list">{this.state.phoneNumber}</li>
                 <li className="modalBox--list">Ratings:{' '}{this.state.rating}</li>
                 <li className="modalBox--list">{this.state.price}</li>
-                <a className="website" href={this.state.website}>Visit Website</a>
+                <a className="website" target="_blank" href={this.state.website}>Directions</a>
                 <li className="modalBox--list">Service offered:{" " + this.state.type[0] + " | " + this.state.type[1]}</li>
               </ul>
               <div className="modal--footer">
