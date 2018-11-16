@@ -3,7 +3,6 @@ import './App.css';
 import { Switch, Route, withRouter } from 'react-router-dom'
 import Header from './components/Header/Header'
 import axios from 'axios'
-import decode from "jwt-decode"
 import Login from './components/User/Login'
 import Signup from "./components/User/Signup"
 import Splash from './components/Splash/Splash'
@@ -12,6 +11,7 @@ import jwtDecode from 'jwt-decode'
 import Show from './components/User/Show';
 
 let googleKey = process.env.REACT_APP_GOOGLEKEY
+let proxy = process.env.REACT_APP_PROXY
 
 class App extends Component {
   constructor(props) {
@@ -41,12 +41,11 @@ class App extends Component {
   }
 
   handleLogIn = (existingUser) => {
-    axios.post(`/users/login`, {
+    axios.post(`${proxy}/users/login`, {
       username: existingUser.username,
       password: existingUser.password
     })
       .then(response => {
-        console.log(decode(response.data.token))
         localStorage.token = response.data.token
         this.setState({ isLoggedIn: true, loginError: '' });
         this.props.history.push('/');
@@ -70,7 +69,7 @@ class App extends Component {
   handleSignup = (newUser) => {
     //axios posts the new user to our backend using the UserInput paremeter
     axios
-      .post(`/users/signup`, {
+      .post(`${proxy}/users/signup`, {
         username: newUser.username,
         password: newUser.password,
         food1: newUser.food1,

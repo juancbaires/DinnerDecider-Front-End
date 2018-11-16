@@ -2,7 +2,11 @@
 
 .navbar-brand {
   font-family: 'Boogaloo', cursive;
-  font-size: 2.5rem;
+  font-size: 3rem;
+}
+
+.header-link {
+  font-size: 16px;
 }
 
 .navbar-inverse {
@@ -47,15 +51,23 @@ button {
 
 /* ZIP CODE INPUT */
 
+.flex-zip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-zip>div {
+  margin-right: 7px;
+}
+
 .form-control-header {
   display: block;
-  width: 50%;
-  height: 15px;
-  padding: 0;
+  width: 65px;
+  height: 20px;
+  padding: 5px;
   font-size: 14px;
   line-height: 1;
-  color: white;
-  background-color: #3C887E;
   background-image: none;
   border: none;
   border-radius: 4px;
@@ -65,4 +77,10 @@ button {
   /* -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s; */
   /* -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; */
   /* transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; */
+}
+
+@media screen and (max-width: 767px) {
+  .flex-zip {
+    justify-content: start;
+  }
 }
