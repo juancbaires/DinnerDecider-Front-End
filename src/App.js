@@ -38,7 +38,7 @@ class App extends Component {
     this.getMyLocation = this.getMyLocation.bind(this)
   }
 
-  
+
 
   componentDidMount() {
     this.getMyLocation()
@@ -153,12 +153,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.user)
-    console.log('token!')
-    if (localStorage.token) {
-      console.log(jwtDecode(localStorage.token))
-
-    }
     return (
       <div>
         <Header zipChange={this.zipChange} zip={this.state.zip} handleLogout={this.handleLogout} name={this.state.user.username} isLoggedIn={this.state.isLoggedIn} />
