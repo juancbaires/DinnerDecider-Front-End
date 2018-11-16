@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './User.css'
 import { Link } from 'react-router-dom'
+import Axios from 'axios';
+
+const proxy = process.env.REACT_APP_PROXY
 
 class Show extends Component {
     state = {
@@ -13,9 +16,13 @@ class Show extends Component {
     }
 
     handleInput = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
+      this.setState({
+        [e.target.name]: e.target.value
+      })
+    }
+
+    handleSubmit = () => {
+      Axios.put(`${proxy}/${this.props.user.id}`)
     }
 
 
@@ -47,7 +54,7 @@ class Show extends Component {
                                 <input className="foodInput" spellCheck="true" name="food6" onChange={this.handleInput} required placeholder={user.food6}></input>
                             </div>
                         </div>
-                        <button type="submit" className="loginButton">Save Changes</button>
+                        <button type="submit" className="loginButton">Save Foods</button>
                         <span>or</span>
                         <Link to="/ateball" className="loginButton">Ateball me!</Link>
                     </form>
