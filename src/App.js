@@ -23,14 +23,29 @@ class App extends Component {
       isLoggedIn: false,
       loginError: '',
       signupError: '',
-      user: {},
+      user: {
+        username: '',
+        id: '',
+        food1: '',
+        food2: '',
+        food3: '',
+        food4: '',
+        food5: '',
+        food6: '',
+      },
       updateError: ''
     }
     this.getMyLocation = this.getMyLocation.bind(this)
   }
 
+  
+
   componentDidMount() {
     this.getMyLocation()
+    this.setUser()
+  }
+
+  setUser = () => {
     if (localStorage.token) {
       this.setState({
         isLoggedIn: true,
@@ -132,12 +147,18 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.user)
+    console.log('token!')
+    if (localStorage.token) {
+      console.log(jwtDecode(localStorage.token))
+
+    }
     return (
       <div>
         <Header zipChange={this.zipChange} zip={this.state.zip} handleLogout={this.handleLogout} name={this.state.user.username} isLoggedIn={this.state.isLoggedIn} />
         <main>
           <Switch>
-            <Route path="/user/:username" render={() => <Show {...this.props}{...this.state} />}></Route>
+            <Route path="/user/:username" render={() => <Show setUser={this.setUser} {...this.props}{...this.state} />}></Route>
             <Route path="/ateball" render={() => <AteBall zip={this.state.zip} latitude={this.state.latitude} longitude={this.state.longitude} user={this.state.user} ateBallMain={this.ateBallMain}></AteBall>}></Route>
             <Route path="/signup" render={() => <Signup handleSignup={this.handleSignup}></Signup>}></Route>
             <Route path="/login" render={() => <Login handleLogIn={this.handleLogIn}></Login>}></Route>

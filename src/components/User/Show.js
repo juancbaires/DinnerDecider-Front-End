@@ -15,14 +15,41 @@ class Show extends Component {
         food6: "",
     }
 
+    componentDidMount() {
+      this.props.setUser()
+    }
+
     handleInput = (e) => {
       this.setState({
         [e.target.name]: e.target.value
       })
     }
 
-    handleSubmit = () => {
-      Axios.put(`${proxy}/${this.props.user.id}`)
+    handleSubmit = e => {
+      e.preventDefault();
+      if (localStorage.token) {
+        Axios
+          .put(
+            `${proxy}/users/${this.props.user.id}`, this.state,
+            {
+              headers: {
+                Authorization: localStorage.token
+              }
+            }
+          )
+          .then(response => {
+            localStorage.clear()
+            // console.log('storage cleared')
+            // localStorage.token = response.data.token
+            console.log('new token saved')
+          })
+          .then(_ => {
+            this.props.setUser()
+          })
+          .catch(error => {
+            console.log(error)
+          })
+      }
     }
 
 
@@ -32,7 +59,7 @@ class Show extends Component {
             <div className="show-page">
                 <div className="ShowImage">
                     {/* user.username is undefined the first time, so nothing gets rendered. The second time, both are truthy so JS returns the second truthy, which is user.username.toUpperCase()  */}
-                    <h1 className="show-title">{user.username && "Welcome " + user.username.charAt(0).toUpperCase() + user.username.slice(1)}{"!"}</h1>
+                    <h1 className="show-title">{user.username && "Welcome " + user.username.charAt(0).toUpperCase() + user.username.slice(1) + "!"}</h1>
                     <form onSubmit={this.handleSubmit} className="LoginForm2">
                         <div className="foods2">
                             <div className="foods--list2">
