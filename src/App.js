@@ -129,7 +129,7 @@ class App extends Component {
           this.changeZipBasedOnCoordinates()
         })
       }, (error) => {
-        this.setState({ latitude: 'err-latitude', longitude: 'err-longitude' })
+        this.setState({ latitude: '38.895', longitude: '-77.0366' })
       })
     }
 

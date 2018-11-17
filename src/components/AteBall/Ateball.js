@@ -80,11 +80,12 @@ class Ateball extends Component {
   randomRestaurant = (extension) => {
     let userFoods = [this.props.user.food1, this.props.user.food2, this.props.user.food3, this.props.user.food4, this.props.user.food5, this.props.user.food6]
 
-    axios.post(`${proxy}/api/yelp`, {
-      foodChoice: userFoods[Math.floor(Math.random() * userFoods.length)],
-      extension: extension
+    axios.get(`${proxy}/api/yelp`, {
+      headers: {
+        "foodChoice": userFoods[Math.floor(Math.random() * userFoods.length)],
+        "extension": extension
+      }
     }).then(response => {
-      console.log(response.data)
       let restaurant = response.data.businesses[Math.floor(Math.random() * response.data.businesses.length)]
       this.setState({
         restaurantName: restaurant.name,
