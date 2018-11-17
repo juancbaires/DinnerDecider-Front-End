@@ -10,6 +10,7 @@ class Ateball extends Component {
     this.canvasRef = React.createRef()
     this.state = {
       ateballRise: 'ateball',
+      ballMessage: 'The AteBall has decided. You will dine in...',
       triangleShow: 'ateball-triangle',
       titleShow: 'ateball-title',
       restaurantName: '',
@@ -42,38 +43,22 @@ class Ateball extends Component {
 
   shake = () => {
     //if user is logged in
-    if (this.props.user.food1) {
-      this.ateBallMain()
+    if (this.props.user.food1 && this.props.zip) {
+      this.setState({
+        titleShow: 'ateball-title',
+        ballMessage: 'The AteBall has decided. You will dine in...'
+      })
+      this.randomRestaurant(`&location=${this.props.zip}`)
       this.setState({
         ateballRise: 'ateball ateball-shake',
         triangleShow: 'ateball-triangle ateball-triangle-show'
       })
     } else {
-      console.log('user not logged in. Ball will not work')
-    }
-  }
-
-
-  ateBallMain = () => {
-    //if user is logged in
-    if (this.props.user.food1) {
-      //and we have location of user
-      if (this.props.latitude && this.props.longitude) {
-        //get the randomRestaurant using coordinates
-        // console.log(`&latitude=${this.props.latitude}&longitude=${this.props.longitude}`)
-        this.randomRestaurant(`&latitude=${this.props.latitude}&longitude=${this.props.longitude}`)
-        //but if we have don't have coordinates but we do have the zip code
-      } else if (this.props.zip) {
-        //get the randomRestaurant using zip code
-        console.log(`&location=${this.props.zip}`)
-        this.randomRestaurant(`&location=${this.props.zip}`)
-        //if user is logged in but we don't have the zip
-      } else {
-        console.log('please enter a zip')
-      }
-      //if user is not logged in
-    } else {
-      console.log('you are not logged in,')
+      this.props.zipShake()
+      this.setState({
+        titleShow: 'ateball-title ateball-title-show',
+        ballMessage: 'Please provide an appropriate zip code'
+      })
     }
   }
 
@@ -87,10 +72,11 @@ class Ateball extends Component {
       }
     }).then(response => {
       let restaurant = response.data.businesses[Math.floor(Math.random() * response.data.businesses.length)]
+      console.log(restaurant.transactions)
       this.setState({
         restaurantName: restaurant.name,
         titleShow: 'ateball-title ateball-title-show',
-        website: this.state.website + restaurant.location.address1,
+        website: this.state.website + restaurant.location.display_address,
         clicked: true,
         phoneNumber: restaurant.display_phone,
         image: restaurant.image_url,
@@ -99,7 +85,6 @@ class Ateball extends Component {
         price: restaurant.price,
         address: restaurant.location.display_address,
         url: restaurant.url,
-        type: restaurant.transactions
       })
     }).catch(err => {
       console.log(err)
@@ -215,7 +200,7 @@ class Ateball extends Component {
   render() {
     return (
       <div className="wrap">
-        <h1 className={this.state.titleShow}>The AteBall has decided. You will dine in...</h1>
+        <h1 className={this.state.titleShow}>{this.state.ballMessage}</h1>
         {this.state.clicked ? <div className={this.state.ateballRise}><div className={this.state.triangleShow}>
           <a onClick={this.styleBegins} rel="noopener noreferrer" target="_blank" className="restaurant-name" href="#">{this.state.restaurantName}<br></br></a>
         </div></div> :
@@ -232,17 +217,16 @@ class Ateball extends Component {
               <ul className="modalBox">
                 <h1 className="modalHeader">{this.state.restaurantName}</h1>
                 <li className="modalBox--list"><img className="modalBox--image" src={this.state.image} alt="location/food snap shot" /></li>
-                <li className="modalBox--list">{this.state.is_closed ? <span>Closed</span> : <span>Open Now</span>}</li>
+                <li className="modalBox--list">{this.state.is_closed ? <span></span> : <img className="open" src="/open.png"></img>}</li>
                 <li className="modalBox--list">{this.state.address[0]}</li>
                 <li className="modalBox--list">{this.state.address[1]}</li>
                 <li className="modalBox--list">{this.state.phoneNumber}</li>
-                <li className="modalBox--list">Ratings:{' '}{this.state.rating}</li>
+                <li className="modalBox--list">{'Rating:' + this.state.rating}</li>
                 <li className="modalBox--list">{this.state.price}</li>
-                <a className="website" target="_blank" href={this.state.website}>Directions</a>
-                <li className="modalBox--list">Service offered:{" " + this.state.type[0] + " | " + this.state.type[1]}</li>
+                <a className="website" rel="noopener noreferrer" target="_blank" href={this.state.website}>Directions</a>
               </ul>
               <div className="modal--footer">
-                <a className="green-button" href="#" onClick={this.styleEnds} >Close</a>
+                <a className="green-button" href="#" onClick={this.styleEnds}>Close</a>
                 <a className="red-button-yelp" target="_blank" href={this.state.url} >Yelp It</a>
               </div>
             </Modal.Body>

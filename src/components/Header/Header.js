@@ -5,6 +5,9 @@ import jwtDecode from 'jwt-decode'
 import {Link} from 'react-router-dom'
 
 class Header extends Component {
+  state={
+    formStyle:'form-control-header'
+  }
 
   onChange = (e) => {
     this.props.zipChange(e.target.value)
@@ -38,7 +41,7 @@ class Header extends Component {
                         <NavItem>
                         <div className="flex-zip">
                         <div className="header-link">Current zip: </div>
-                        <FormControl maxLength="6" className="form-control-header" type="text" onChange={this.onChange} value={this.props.zip} />
+                        <FormControl maxLength="6" className={this.props.zip? this.state.formStyle: this.props.zipShake} type="number" onChange={this.onChange} value={this.props.zip} />
                         </div>
                       </NavItem>
                       </Nav>

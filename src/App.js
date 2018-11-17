@@ -19,10 +19,12 @@ class App extends Component {
     this.state = {
       latitude: '',
       longitude: '',
-      zip: 22044,
+      zip: '',
+      zipShake: 'form-control-header red-warning',
       isLoggedIn: false,
       loginError: '',
       signupError: '',
+      //user shape with undefined values so react doesn't yell at us
       user: {
         username: '',
         id: '',
@@ -129,7 +131,7 @@ class App extends Component {
           this.changeZipBasedOnCoordinates()
         })
       }, (error) => {
-        this.setState({ latitude: '38.895', longitude: '-77.0366' })
+        console.log('no lat and long received from location getter')
       })
     }
 
@@ -138,6 +140,12 @@ class App extends Component {
   zipChange = (zip) => {
     this.setState({
       zip: zip
+    })
+  }
+
+  zipShake = () => {
+    this.setState({
+      zipShake: 'form-control-header red-warning zip-shake'
     })
   }
 
@@ -155,11 +163,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header zipChange={this.zipChange} zip={this.state.zip} handleLogout={this.handleLogout} name={this.state.user.username} isLoggedIn={this.state.isLoggedIn} />
+        <Header zipShake={this.state.zipShake} zipChange={this.zipChange} zip={this.state.zip} handleLogout={this.handleLogout} name={this.state.user.username} isLoggedIn={this.state.isLoggedIn} />
         <main>
           <Switch>
             <Route path="/user/:username" render={() => <Show handleLogout={this.handleLogout} setUser={this.setUser} newFoods={this.newFoods} {...this.props}{...this.state} />}></Route>
-            <Route path="/ateball" render={() => <AteBall zip={this.state.zip} latitude={this.state.latitude} longitude={this.state.longitude} user={this.state.user} ateBallMain={this.ateBallMain}></AteBall>}></Route>
+            <Route path="/ateball" render={() => <AteBall zipShake={this.zipShake} zip={this.state.zip} latitude={this.state.latitude} longitude={this.state.longitude} user={this.state.user} ateBallMain={this.ateBallMain}></AteBall>}></Route>
             <Route path="/signup" render={() => <Signup handleSignup={this.handleSignup} {...this.state}></Signup>}></Route>
             <Route path="/login" render={() => <Login handleLogIn={this.handleLogIn} {...this.state}></Login>}></Route>
             <Route path="/" render={() => <Splash latitude={this.state.latitude} longitude={this.state.longitude}></Splash>}></Route>
