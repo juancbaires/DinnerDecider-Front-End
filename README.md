@@ -4,7 +4,7 @@ Have you ever had fights with your spouse/significant other/friend over where yo
 
 ## Home Screen
 
-![](https://imgur.com/a/JGPBdKp)
+![](https://i.imgur.com/FtIcBwN.jpg)
 
 ## Website Features
 
