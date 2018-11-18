@@ -170,7 +170,7 @@ class App extends Component {
             <Route path="/ateball" render={() => <AteBall zipShake={this.zipShake} zip={this.state.zip} latitude={this.state.latitude} longitude={this.state.longitude} user={this.state.user} ateBallMain={this.ateBallMain}></AteBall>}></Route>
             <Route path="/signup" render={() => <Signup handleSignup={this.handleSignup} {...this.state}></Signup>}></Route>
             <Route path="/login" render={() => <Login handleLogIn={this.handleLogIn} {...this.state}></Login>}></Route>
-            <Route path="/" render={() => <Splash latitude={this.state.latitude} longitude={this.state.longitude}></Splash>}></Route>
+            <Route path="/" render={() => <Splash latitude={this.state.latitude} longitude={this.state.longitude} {...this.state}></Splash>}></Route>
           </Switch>
         </main>
       </div>

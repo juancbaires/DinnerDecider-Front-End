@@ -1,4 +1,5 @@
 /* background slide show */
+
 .slideshow {
   background-color: rgb(23, 23, 23);
   height: 100%;
@@ -43,9 +44,7 @@
   border-color: rgb(22, 49, 46);
 }
 
-.btn-success:active:focus,
-.btn-success:focus,
-.btn-success:active {
+.btn-success:active:focus, .btn-success:focus, .btn-success:active {
   color: #fff;
   background-color: rgb(22, 49, 47);
   border-color: rgb(19, 41, 38);
@@ -91,7 +90,6 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
   0% {
     /* visibility: visible; */
   }
-
   100% {
     transform: translateY(0%);
     visibility: visible;
@@ -109,7 +107,6 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
     transform: translateY(0%);
     visibility: visible;
   }
-
   100% {
     transform: translateY(100%);
     visibility: hidden;
@@ -126,43 +123,33 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
     transform: translate(1px, 2%) rotate(0deg);
     visibility: visible;
   }
-
   10% {
     transform: translate(-1px, 1%) rotate(-1deg);
   }
-
   20% {
     transform: translate(-3px, 2%) rotate(1deg);
   }
-
   30% {
     transform: translate(3px, 1%) rotate(0deg);
   }
-
   40% {
     transform: translate(1px, 2%) rotate(1deg);
   }
-
   50% {
     transform: translate(-1px, 2%) rotate(-1deg);
   }
-
   60% {
     transform: translate(-3px, 2%) rotate(0deg);
   }
-
   70% {
     transform: translate(3px, 1%) rotate(-1deg);
   }
-
   80% {
     transform: translate(-1px, 2%) rotate(1deg);
   }
-
   90% {
     transform: translate(1px, 1%) rotate(0deg);
   }
-
   100% {
     transform: translate(0px, 1%) rotate(-1deg);
     visibility: visible;
@@ -209,9 +196,7 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
   text-shadow: .5px .5px 7px rgba(255, 255, 255, 0.69);
 }
 
-.triangle a:visited,
-.triangle a:hover,
-.triangle a:active {
+.triangle a:visited, .triangle a:hover, .triangle a:active {
   color: white;
   text-decoration: none;
   text-shadow: 2px 2px 14px rgba(255, 255, 255, 0.69);
@@ -257,25 +242,20 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
 }
 
 @keyframes imageAnimation {
-
-  0%,
-  40% {
+  0%, 40% {
     animation-timing-function: ease-in;
     opacity: 0;
     transform: scale(1);
   }
-
   10% {
     animation-timing-function: ease-out;
     opacity: .3;
     transform: scale(1.1);
   }
-
   20% {
     opacity: .3;
     transform: scale(1.2);
   }
-
   30% {
     opacity: 0;
     transform: scale(1.2);
@@ -287,14 +267,16 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
     width: 300px;
     height: 150px;
   }
-
   .triangle {
     width: 100px;
     height: 40px;
     padding-top: 2px;
   }
-
   .triangle a {
     font-size: 1rem;
   }
+}
+
+.splash--row {
+  display: flex;
 }

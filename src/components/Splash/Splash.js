@@ -74,18 +74,44 @@ class Splash extends Component {
         <li />
         <li />
         <li />
-        <div className="hero-text">
-          <h1>Ate-Ball</h1>
-          <Button
-            bsStyle="success"
-            onMouseEnter={this.riseBall}
-            onMouseLeave={this.hideBall}
-            onClick={this.showTriangle}
-            className="splash-button"
-          >
-            Random Diner
+        {this.props.isLoggedIn ? (
+          <div className="hero-text">
+
+            <h1>Ate-Ball</h1>
+
+            <div className="splash--row">
+              <Button
+                bsStyle="success"
+                onMouseEnter={this.riseBall}
+                onMouseLeave={this.hideBall}
+                onClick={this.showTriangle}
+                className="green-button"
+              >
+                Random Diner
+            </Button>
+              <a href="/user/:username" className="green-button">
+                Edit Foods
+            </a>
+              <a href="/ateball" className="green-button">
+                Ateballme
+             </a>
+            </div>
+          </div>
+        ) : (
+            <div className="hero-text">
+
+              <h1>Ate-Ball</h1>
+              <Button
+                bsStyle="success"
+                onMouseEnter={this.riseBall}
+                onMouseLeave={this.hideBall}
+                onClick={this.showTriangle}
+                className="splash-button"
+              >
+                Random Diner
           </Button>
-        </div>
+            </div>
+          )}
         <div className={this.state.ballClass}>
           <div className={this.state.triangleClass}>
             <a
