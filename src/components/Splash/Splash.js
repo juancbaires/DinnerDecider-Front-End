@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './Splash.css'
 import { Button } from 'react-bootstrap'
 import Axios from 'axios';
-
+import { Link } from 'react-router-dom'
 const zomato = process.env.REACT_APP_ZOMATOKEY
 
 class Splash extends Component {
@@ -89,12 +89,12 @@ class Splash extends Component {
               >
                 Random Diner
             </Button>
-              <a href="/user/:username" className="green-button">
+              <Link to="/user/:username" className="green-button">
                 Edit Foods
-            </a>
-              <a href="/ateball" className="green-button">
+            </Link>
+              <Link to="/ateball" className="green-button">
                 Ateballme
-             </a>
+             </Link>
             </div>
           </div>
         ) : (
