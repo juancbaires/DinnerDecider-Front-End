@@ -248,11 +248,11 @@ input {
 }
 
 .LoginForm2 {
-  width: 50%;
+  width: 80%;
   margin: auto;
   text-align: center;
   background-color: white;
-  height: 65vh;
+  height: 70vh;
   margin-top: 15px;
   border-radius: 6px;
 }
@@ -317,7 +317,18 @@ input {
 @media screen and (max-width: 750px) {
   .LoginForm2 {
     padding: 20px;
-    width: 90%
+    width: 100%;
+    height: 80%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .LoginForm2 {
+    padding: 20px;
+    width: 100%
+  }
+  .foodInput {
+    font-size: 12px;
   }
 }
 

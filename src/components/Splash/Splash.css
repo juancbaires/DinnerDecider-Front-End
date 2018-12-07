@@ -275,6 +275,11 @@ you can find the original work on codepen here https://codepen.io/freshinbox/pen
   .triangle a {
     font-size: 1rem;
   }
+  #phone-button {
+    width: 120px;
+    font-size: 14px;
+    text-align: center;
+  }
 }
 
 .splash--row {

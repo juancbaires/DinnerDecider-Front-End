@@ -41,6 +41,7 @@ class Signup extends Component {
                         </div>
                         <div className="foods">
                             <div className="foods--list">
+                                <h3>Person One</h3>
                                 <label htmlFor="">Food 1</label>
                                 <input className="foodInput" name="food1" onChange={this.handleInput} placeholder="Food 1"></input>
                                 <label htmlFor="">Food 2</label>
@@ -49,6 +50,7 @@ class Signup extends Component {
                                 <input className="foodInput" name="food3" onChange={this.handleInput} placeholder="Food 3"></input>
                             </div>
                             <div className="foods--list">
+                                <h3>Person Two</h3>
                                 <label htmlFor="">Food 1</label>
                                 <input className="foodInput" name="food4" onChange={this.handleInput} placeholder="Food 1"></input>
                                 <label htmlFor="">Food 2</label>

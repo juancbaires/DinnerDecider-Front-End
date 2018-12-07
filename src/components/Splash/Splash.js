@@ -80,19 +80,19 @@ class Splash extends Component {
             <h1>Ate-Ball</h1>
 
             <div className="splash--row">
-              <Button
+              {/* <Button
                 bsStyle="success"
                 onMouseEnter={this.riseBall}
                 onMouseLeave={this.hideBall}
                 onClick={this.showTriangle}
-                className="green-button"
+                className="green-button" id="phone-button"
               >
-                Random Diner
-            </Button>
-              <Link to="/user/:username" className="green-button">
+                Random
+            </Button> */}
+              <Link to="/user/:username" id="phone-button" className="green-button">
                 Edit Foods
             </Link>
-              <Link to="/ateball" className="green-button">
+              <Link to="/ateball" id="phone-button" className="green-button">
                 Ateballme
              </Link>
             </div>
